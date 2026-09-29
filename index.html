@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <!-- Title -->
+        <title>Watches Over Time</title>
+        <!-- Vega-->
+        <script src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+        <!-- Vega-Lite-->
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@6"></script>
+        <!-- Vega-Embed-->
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+        
+        <style>
+            .chart-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                margin-bottom: 40px;
+            }
+            .chart{
+                width:100%;
+            }
+        </style>
+    </head>
+    <body>
+        <!--Dashboard Title-->
+        <h1>Watches Over Time</h1>
+        <!--Introduction-->
+        <p>
+            Explore the history, geographical distribution,
+            characteristics, and value of watches over time.
+        </p>
+        <!--Section 1: Watches History -->
+        <h2>1. Watch History</h2>
+        <div class="chart-row">
+            <div class="chart">
+                <!--Production Timeline Chart-->
+                <h3>Production Timeline</h3>
+                <div id="ProductionTimeline"></div>
+            </div>
+            <div class="chart">
+                <!--Manufacturer Evolution Chart-->
+                <h3>Manufacturer Evolution</h3>
+                <div id="ManufacturerEvolution"></div>
+            </div>
+        </div>
+
+        <!--Load Chart-->
+        <script>
+            // Section 1: Watches History
+            vegeEmbed('#ProductionTimeline', 'productionTimeline.json')
+            vegeEmbed('#ManufacturerEvolution', 'manufacturerEvolution.json')
+        </script>
+    </body>
+
+</html>
