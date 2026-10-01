@@ -1,0 +1,52 @@
+{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{
+        "text": "Production Timeline",
+        "subtitle": "Number of historical watch brands founded by period"
+    },
+    "data":{
+        "url": "data/graveyard.json"
+    },
+    "transform":[
+        {
+            "filter": "isValid(datum.founded)"
+        },
+        {
+            "calculate": "datum.founded < 1800 ? 'Before 1800': datum.founded < 1850 ? '1800-1849' : datum.founded < 1900 ? '1850-1899' : datum.founded < 1950 ? '1900–1949' : datum.founded < 2000 ? '1950–1999' : '2000 onwards'",
+            "as": "foundingPeriod"
+        }
+    ],
+    "mark": "bar",
+    "encoding":{
+        "x":{
+            "field": "foundingPeriod",
+            "type": "ordinal",
+            "title": "Founded Period",
+            "sort":[
+                "Before 1800",
+                "1800-1849",
+                "1850-1899",
+                "1900-1949",
+                "1950-1999",
+                "2000 onwards"
+            ]
+        },
+        "y":{
+            "aggregate": "count",
+            "type": "quantitative",
+            "title": "Number of Brands"
+        },
+        "tooltip":[
+            {
+                "field": "foundingPeriod",
+                "type": "ordinal",
+                "title": "Founding Period"
+            },
+            {
+                "aggregate": "count",
+                "type": "quantitative",
+                "title": "Number of Brands"
+            }
+        ]
+    }
+}
