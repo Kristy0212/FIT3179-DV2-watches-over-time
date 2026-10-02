@@ -4,6 +4,8 @@
         "text": "Production Timeline",
         "subtitle": "Number of historical watch brands founded by period"
     },
+    "width": 450,
+    "height": 300,
     "data":{
         "url": "data/graveyard.json"
     },
@@ -12,8 +14,12 @@
             "filter": "isValid(datum.founded)"
         },
         {
-            "calculate": "datum.founded < 1800 ? 'Before 1800': datum.founded < 1850 ? '1800-1849' : datum.founded < 1900 ? '1850-1899' : datum.founded < 1950 ? '1900–1949' : datum.founded < 2000 ? '1950–1999' : '2000 onwards'",
+            "calculate": "datum.founded < 1800 ? 'Before 1800' : datum.founded < 1850 ? '1800-1849' : datum.founded < 1900 ? '1850-1899' : datum.founded < 1950 ? '1900-1949' : datum.founded < 2000 ? '1950-1999' : '2000 onwards'",
             "as": "foundingPeriod"
+        },
+        {
+            "calculate": "datum.founded < 1800 ? 1 : datum.founded < 1850 ? 2 : datum.founded < 1900 ? 3 : datum.founded < 1950 ? 4 : datum.founded < 2000 ? 5 : 6",
+            "as": "periodOrder"
         }
     ],
     "mark": "bar",
@@ -22,14 +28,13 @@
             "field": "foundingPeriod",
             "type": "ordinal",
             "title": "Founded Period",
-            "sort":[
-                "Before 1800",
-                "1800-1849",
-                "1850-1899",
-                "1900-1949",
-                "1950-1999",
-                "2000 onwards"
-            ]
+            "sort":{
+                "field": "periodOrder",
+                "order": "ascending"
+            },
+            "axis":{
+                "labelAngle": 0
+            }
         },
         "y":{
             "aggregate": "count",
