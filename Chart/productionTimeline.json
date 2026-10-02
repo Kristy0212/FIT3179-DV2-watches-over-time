@@ -2,7 +2,14 @@
     "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
     "title":{
         "text": "Production Timeline",
-        "subtitle": "Number of historical watch brands founded by period"
+        "subtitle": "When were most watch brand found?",
+        "font": "san-serif",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "subtitleFont": "san-serif",
+        "subtitleFontWeight": "normal",
+        "anchor":"start",
+        "offset": 10
     },
     "width": 450,
     "height": 300,

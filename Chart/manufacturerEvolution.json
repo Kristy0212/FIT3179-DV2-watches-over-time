@@ -2,10 +2,17 @@
     "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
     "title":{
         "text": "Manufacturer Evolution",
-        "subtitle": "Founded and discontinued periods of historical watch brands"
+        "subtitle": "How did individual manufacturer appear, disappear and revive until 2026",
+        "font": "san-serif",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "subtitleFont": "san-serif",
+        "subtitleFontWeight": "normal",
+        "anchor":"start",
+        "offset": 10
     },
-    "width":450,
-    "height":300,
+    "width": 450,
+    "height": 300,
     "data":{
         "url": "data/graveyard.json"
     },
@@ -42,7 +49,8 @@
     "layer":[
         {
             "mark":{
-                "type": "rule"
+                "type": "rule",
+                "color": "#1f77b4"
             },
             "encoding":{
                 "x":{
@@ -191,7 +199,7 @@
                         "order": "descending"
                     }
                 },
-                "yOffset":{
+                "yOffset":{ 
                     "value": 6 
                 },
                 "tooltip":[
@@ -230,6 +238,35 @@
                     "type":"nominal"
                 }
             }
+        },
+        {
+        "data":{
+            "values":[
+                {"event": "Founded"},
+                {"event": "Defunct"},
+                {"event": "Revival"}
+            ]
+        },
+        "mark":{
+            "type": "point",
+            "filled": true,
+            "opacity": 0
+        },
+        "encoding":{
+            "color":{
+                "field":"event",
+                "type": "nominal",
+                "scale":{
+                    "domain":["Founded", "Defunct", "Revival"],
+                    "range": ["#2ca02c", "#d62728", "#1f77b4"]
+                },
+                "legend":{
+                    "title":"Milestone",
+                    "orient":"right",
+                    "direction":"vertical"
+                }
+            }
         }
-    ]     
+    }  
+    ]   
 }
