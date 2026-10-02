@@ -1,0 +1,235 @@
+{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{
+        "text": "Manufacturer Evolution",
+        "subtitle": "Founded and discontinued periods of historical watch brands"
+    },
+    "width":450,
+    "height":300,
+    "data":{
+        "url": "data/graveyard.json"
+    },
+    "transform":[
+        {
+            "filter": "isValid(datum.founded) && isValid(datum.defunctYear)"
+        },
+        {
+            "calculate": "datum.defunctYear - datum.founded",
+            "as": "operatingDuration"
+        },
+        {
+            "window":[
+                {
+                    "op": "rank",
+                    "as": "rank"
+                }
+            ],
+            "sort":[
+                {
+                    "field": "operatingDuration",
+                    "order": "descending"
+                }
+            ]
+        },
+        {
+            "filter": "datum.rank <= 20"
+        },
+        {
+            "calculate": "datum.revivalAttempt != null ? toNumber(replace(datum.revivalAttempt, /.*?([12][0-9]{3}).*/,'$1')):null",
+            "as": "revivalYear"
+        }
+    ],
+    "layer":[
+        {
+            "mark":{
+                "type": "rule"
+            },
+            "encoding":{
+                "x":{
+                "field": "founded",
+                "type": "quantitative",
+                "title": "Year",
+                "scale":{
+                    "domain": [1700, 2026]
+                    }
+                },
+                "x2":{
+                    "field": "defunctYear"
+                },
+                "y":{
+                    "field": "name",
+                    "type": "nominal",
+                    "title": "Manufacturer",
+                    "sort": {
+                        "field": "operatingDuration",
+                        "order": "descending"
+                    }
+                },
+                "tooltip":[
+                    {
+                        "field": "name",
+                        "type": "nominal",
+                        "title": "Manufacturer"
+                    },
+                    {
+                        "field": "founded",
+                        "type": "quantitative",
+                        "title": "Founded"
+                    },
+                    {
+                        "field": "defunctYear",
+                        "type": "quantitative",
+                        "title": "Defunct"
+                    },
+                    {
+                        "field": "status",
+                        "type": "nominal",
+                        "title": "Status"
+                    }   
+                ]
+            }
+        },
+        {
+            "mark":{
+                "type": "point",
+                "filled": true,
+                "size": 60,
+                "color": "#2ca02c"
+            },
+            "encoding":{
+                "x":{
+                    "field":"founded",
+                    "type":"quantitative",
+                    "scale":{
+                        "domain":[1700, 2026]
+                    }
+                },
+                "y":{
+                    "field":"name",
+                    "type": "nominal",
+                    "sort": {
+                        "field": "operatingDuration",
+                        "order": "descending"
+                    }
+                },
+                "tooltip":[
+                    {
+                        "field":"name",
+                        "type": "nominal",
+                        "title": "Manufacturer"
+                    },
+                    {
+                        "field": "founded",
+                        "type": "quantitative",
+                        "title": "Founded"
+                    }
+                ]
+            }
+        },
+        {
+            "mark":{
+                "type": "point",
+                "filled": true,
+                "size": 60,
+                "color": "#d62728"
+            },
+            "encoding":{
+                "x":{
+                    "field": "defunctYear",
+                    "type": "quantitative",
+                    "scale":{
+                        "domain": [1700, 2026]
+                    }
+                },
+                "y":{
+                    "field":"name",
+                    "type":"nominal",
+                    "sort":{
+                        "field":"operatingDuration",
+                        "order":"descending"
+                    }
+                },
+                "tooltip":[
+                    {
+                        "field":"name",
+                        "type": "nominal",
+                        "title": "Manufacturer"
+                    },
+                    {
+                        "field": "defunctYear",
+                        "type": "quantitative",
+                        "title": "Defunct"
+                    }
+                ]
+            }
+        },
+        {
+            "transform":[
+                {
+                    "filter": "isValid(datum.revivalYear)"
+                }
+            ],
+            "mark":{
+                "type": "point",
+                "filled": true,
+                "size": 60,
+                "color": "#1f77b4"
+            },
+            "encoding": {
+                "x":{
+                    "field": "revivalYear",
+                    "type": "quantitative",
+                    "scale":{
+                        "domain": [1700, 2026]
+                    }
+                },
+                "y":{
+                    "field": "name",
+                    "type": "nominal",
+                    "sort":{
+                        "field":"operatingDuration",
+                        "order": "descending"
+                    }
+                },
+                "yOffset":{
+                    "value": 6 
+                },
+                "tooltip":[
+                    {
+                        "field":"name",
+                        "type":"nominal",
+                        "title": "Manufacturer"
+                    },
+                    {
+                        "field": "revivalYear",
+                        "type": "quantitative",
+                        "title":"Revived"
+                    }
+                ]
+            }
+        },
+        {
+            "transform": [
+                {
+                    "filter":"isValid(datum.revivalYear) && lower(datum.status) == 'revived'"
+                }
+            ],
+            "mark":{
+                "type": "rule"
+            },
+            "encoding":{
+                "x":{
+                    "field":"revivalYear",
+                    "type":"quantitative"
+                },
+                "x2":{
+                    "datum": 2026
+                },
+                "y":{
+                    "field": "name",
+                    "type":"nominal"
+                }
+            }
+        }
+    ]     
+}
