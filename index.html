@@ -96,14 +96,15 @@
                 <div id="GlobalOrigins"></div>
             </div>
             <div class="chart-card">
-                <!--Global Headquarters of Watch Manufacturers Chart-->
-                <div id="GlobalHeadquarters"></div>
-            </div>
-            <div class="chart-card">
-                <!--The Global Spread of Watchmaking-->
-                <div id="GlobalSpread"></div>
+                <!--Global Active Watch Brands Around the World Chart-->
+                <div id="GlobalActive"></div>
             </div>
         </div>
+        <div class="chart-card">
+            <!--The Global Spread of Watchmaking-->
+            <div id="GlobalSpread"></div>
+        </div>
+        
         <!--Load Chart-->
         <script>
             // Section 1: Watches History
@@ -111,8 +112,8 @@
             vegaEmbed('#ManufacturerEvolution', 'Chart/manufacturerEvolution.json');
             // Section 2: Global WatchMakingS
             vegaEmbed('#GlobalOrigins', 'Chart/globalOriginsofWatchManufacturers.json');
-            vegaEmbed('#GlobalHeadquarters', 'Chart/globalHeadquartersofWatchManufacturers.json');
-            vegaEmbed('#GlobalSpread', 'Chart/theGlobalSpreadofWatchmaking.json');
+            vegaEmbed('#GlobalActive', 'Chart/ActiveWatchBrandsAroundtheWorld.json');
+            vegaEmbed('#GlobalSpread', 'Chart/globalSpreadofWatchMaking.json');
         </script>
     </body>
 

@@ -1,0 +1,169 @@
+{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{
+        "text": "Historical Watchmaking Hubs",
+        "subtitle": "Number of watch brands and the earliest recorded brand by country",
+        "font": "sans-serif",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "subtitleFont": "sans-serif",
+        "subtitleFontWeight": "normal",
+        "anchor":"start",
+        "offset": 10
+    },
+    "width": 1100,
+    "height": 450,
+    "projection": {
+        "type": "equalEarth"
+    },
+    "layer":[
+        {
+            "data":{
+                "url": "../data/ne_110m_admin_0_countries.topojson",
+                "format":{
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "transform": [
+                {
+                "lookup": "properties.NAME",
+                "from":{
+                    "data":{
+                        "url": "../data/globalEmergenceFlow.json"
+                    },
+                    "key": "country",
+                    "fields": [
+                        "earliestYear",
+                        "earliestBrand",
+                        "brandCount",
+                        "order"
+                    ]
+                }
+            }
+        ],
+        "mark":{
+        "type": "geoshape",
+        "fill": "#E8E1D5",
+        "stroke": "white",
+        "strokeWidth": 0.5
+        },
+        "encoding":{
+            "tooltip":[
+                {
+                    "field": "properties.NAME",
+                    "type": "nominal",
+                    "title": "Country"
+                },
+                {
+                    "field": "earliestYear",
+                    "type": "quantitative",
+                    "title": "Earliest year"
+                },
+                {
+                    "field": "earliestBrand",
+                    "type": "nominal",
+                    "title": "Earliest brand"
+                },
+                {
+                    "field": "order",
+                    "type": "quantitative",
+                    "title": "Emergence order"
+                }
+            ]
+            }
+        },
+        {
+            "data":{
+                "url":"../data/ne_110m_admin_0_countries.topojson",
+                "format":{
+                    "type": "topojson",
+                    "feature": "ne_110m_admin_0_countries"
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "properties.NAME",
+                    "from":{
+                        "data": {
+                            "url": "../data/globalEmergenceFlow.json"
+                        },
+                        "key": "country",
+                        "fields":[
+                            "earliestYear",
+                            "earliestBrand",
+                            "brandCount",
+                            "order"
+                        ]
+                    }
+                },
+                {
+                    "filter": "isValid(datum.order)"
+                },
+                {
+                    "calculate": "geoCentroid(null,datum)[0]",
+                    "as": "longitude"
+                },
+                {
+                    "calculate": "geoCentroid(null,datum)[1]",
+                    "as": "latitude"
+                }
+            ],
+            "mark": {
+                "type": "circle",
+                "opacity": 0.75,
+                "stroke": "white",
+                "strokeWidth": 1
+            },
+            "encoding": {
+                "longitude":{
+                    "field": "longitude",
+                    "type": "quantitative"
+                },
+                "latitude":{
+                    "field":"latitude",
+                    "type": "quantitative"
+                },
+                "size": {
+                    "field": "brandCount",
+                    "type": "quantitative",
+                    "title": "Number of brands",
+                    "scale": {
+                        "range": [30, 900]
+                    }
+                },
+
+                "color": {
+                    "field": "earliestYear",
+                    "type": "quantitative",
+                    "title": "Earliest recorded year",
+                    "scale": {
+                        "scheme": "brownbluegreen"
+                    }
+                },
+                "tooltip":[
+                    {
+                        "field": "properties.NAME",
+                        "type": "nominal",
+                        "title": "Country"
+                    },
+                    {
+                        "field": "earliestYear",
+                        "type": "quantitative",
+                        "title": "Earliest year"
+                    },
+                    {
+                        "field": "earliestBrand",
+                        "type": "nominal",
+                        "title": "Earliest brand"
+                    },
+                    {
+                        "field": "order",
+                        "type": "quantitative",
+                        "title": "Emergence order"
+                    }
+                ]
+            }
+        }
+    ]
+}

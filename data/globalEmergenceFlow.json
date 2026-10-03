@@ -1,0 +1,254 @@
+[
+  {
+    "country": "United Kingdom",
+    "earliestYear": 1695,
+    "earliestBrand": "Graham",
+    "brandCount": 24,
+    "order": 1
+  },
+  {
+    "country": "Switzerland",
+    "earliestYear": 1735,
+    "earliestBrand": "Blancpain",
+    "brandCount": 123,
+    "order": 2
+  },
+  {
+    "country": "France",
+    "earliestYear": 1753,
+    "earliestBrand": "Ferdinand Berthoud",
+    "brandCount": 31,
+    "order": 3
+  },
+  {
+    "country": "Denmark",
+    "earliestYear": 1773,
+    "earliestBrand": "Urban Jürgensen",
+    "brandCount": 8,
+    "order": 4
+  },
+  {
+    "country": "Austria",
+    "earliestYear": 1822,
+    "earliestBrand": "Carl Suchy & Söhne",
+    "brandCount": 2,
+    "order": 5
+  },
+  {
+    "country": "Germany",
+    "earliestYear": 1822,
+    "earliestBrand": "Kienzle",
+    "brandCount": 30,
+    "order": 6
+  },
+  {
+    "country": "United States of America",
+    "earliestYear": 1837,
+    "earliestBrand": "Tiffany & Co.",
+    "brandCount": 60,
+    "order": 7
+  },
+  {
+    "country": "Italy",
+    "earliestYear": 1858,
+    "earliestBrand": "Philip Watch",
+    "brandCount": 17,
+    "order": 8
+  },
+  {
+    "country": "Japan",
+    "earliestYear": 1881,
+    "earliestBrand": "Seiko",
+    "brandCount": 31,
+    "order": 9
+  },
+  {
+    "country": "Cuba",
+    "earliestYear": 1882,
+    "earliestBrand": "Cuervo y Sobrinos",
+    "brandCount": 1,
+    "order": 10
+  },
+  {
+    "country": "Sweden",
+    "earliestYear": 1887,
+    "earliestBrand": "Halda",
+    "brandCount": 8,
+    "order": 11
+  },
+  {
+    "country": "Finland",
+    "earliestYear": 1910,
+    "earliestBrand": "Leijona",
+    "brandCount": 6,
+    "order": 12
+  },
+  {
+    "country": "Canada",
+    "earliestYear": 1939,
+    "earliestBrand": "Marathon",
+    "brandCount": 3,
+    "order": 13
+  },
+  {
+    "country": "Russia",
+    "earliestYear": 1942,
+    "earliestBrand": "Vostok",
+    "brandCount": 11,
+    "order": 14
+  },
+  {
+    "country": "Czechia",
+    "earliestYear": 1949,
+    "earliestBrand": "Prim",
+    "brandCount": 1,
+    "order": 15
+  },
+  {
+    "country": "Belarus",
+    "earliestYear": 1953,
+    "earliestBrand": "Luch",
+    "brandCount": 1,
+    "order": 16
+  },
+  {
+    "country": "China",
+    "earliestYear": 1955,
+    "earliestBrand": "Sea-Gull",
+    "brandCount": 29,
+    "order": 17
+  },
+  {
+    "country": "Poland",
+    "earliestYear": 1959,
+    "earliestBrand": "Błonie",
+    "brandCount": 3,
+    "order": 18
+  },
+  {
+    "country": "India",
+    "earliestYear": 1961,
+    "earliestBrand": "HMT",
+    "brandCount": 12,
+    "order": 19
+  },
+  {
+    "country": "Australia",
+    "earliestYear": 1971,
+    "earliestBrand": "Adina",
+    "brandCount": 5,
+    "order": 20
+  },
+  {
+    "country": "Netherlands",
+    "earliestYear": 1974,
+    "earliestBrand": "Christiaan van der Klaauw",
+    "brandCount": 4,
+    "order": 21
+  },
+  {
+    "country": "Spain",
+    "earliestYear": 1980,
+    "earliestBrand": "Lotus",
+    "brandCount": 4,
+    "order": 22
+  },
+  {
+    "country": "South Korea",
+    "earliestYear": 1988,
+    "earliestBrand": "Romanson",
+    "brandCount": 2,
+    "order": 23
+  },
+  {
+    "country": "Ukraine",
+    "earliestYear": 1997,
+    "earliestBrand": "Kleynod",
+    "brandCount": 1,
+    "order": 24
+  },
+  {
+    "country": "Israel",
+    "earliestYear": 2000,
+    "earliestBrand": "Itay Noy",
+    "brandCount": 1,
+    "order": 25
+  },
+  {
+    "country": "Lithuania",
+    "earliestYear": 2003,
+    "earliestBrand": "Vostok Europe",
+    "brandCount": 1,
+    "order": 26
+  },
+  {
+    "country": "Singapore",
+    "earliestYear": 2003,
+    "earliestBrand": "Azimuth",
+    "brandCount": 7,
+    "order": 27
+  },
+  {
+    "country": "Belgium",
+    "earliestYear": 2006,
+    "earliestBrand": "Ice-Watch",
+    "brandCount": 4,
+    "order": 28
+  },
+  {
+    "country": "New Zealand",
+    "earliestYear": 2007,
+    "earliestBrand": "Magrette",
+    "brandCount": 2,
+    "order": 29
+  },
+  {
+    "country": "Thailand",
+    "earliestYear": 2008,
+    "earliestBrand": "Wise",
+    "brandCount": 2,
+    "order": 30
+  },
+  {
+    "country": "Hong Kong",
+    "earliestYear": 2011,
+    "earliestBrand": "Memorigin",
+    "brandCount": 4,
+    "order": 31
+  },
+  {
+    "country": "Indonesia",
+    "earliestYear": 2011,
+    "earliestBrand": "Matoa",
+    "brandCount": 3,
+    "order": 32
+  },
+  {
+    "country": "Philippines",
+    "earliestYear": 2014,
+    "earliestBrand": "Ibarra",
+    "brandCount": 2,
+    "order": 33
+  },
+  {
+    "country": "Norway",
+    "earliestYear": 2016,
+    "earliestBrand": "Von Doren",
+    "brandCount": 3,
+    "order": 34
+  },
+  {
+    "country": "Vietnam",
+    "earliestYear": 2016,
+    "earliestBrand": "Curnon",
+    "brandCount": 1,
+    "order": 35
+  },
+  {
+    "country": "Malaysia",
+    "earliestYear": 2017,
+    "earliestBrand": "Ming",
+    "brandCount": 2,
+    "order": 36
+  }
+]
