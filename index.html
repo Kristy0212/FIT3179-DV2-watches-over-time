@@ -49,12 +49,12 @@
                 line-height: 1.5;
                 max-width: 900px;
             }
-            .section1-header{
+            .section-header{
                 background: #EADCC8;
                 padding: 14px 20px;
                 margin-bottom: 20px;
             }
-            .section1-header h2{
+            .section-header h2{
                 margin: 0;
                 color: #634032;
                 font-family: Georgia, serif;
@@ -73,7 +73,7 @@
             </p>
         </div>
         <!--Section 1: Watches History -->
-        <div class="section1-header">
+        <div class="section-header">
             <h2>1. Watch History</h2>
         </div>
         <div class="chart-row">
@@ -86,12 +86,33 @@
                 <div id="ManufacturerEvolution"></div>
             </div>
         </div>
-
+         <!--Section 2: Global WatchMaking -->
+        <div class="section-header">
+            <h2>2. Global Watchmaking</h2>
+        </div>
+        <div class="chart-row">
+            <div class="chart-card">
+                <!--Global Origins of Watch Manufacturers-->
+                <div id="GlobalOrigins"></div>
+            </div>
+            <div class="chart-card">
+                <!--Global Headquarters of Watch Manufacturers Chart-->
+                <div id="GlobalHeadquarters"></div>
+            </div>
+            <div class="chart-card">
+                <!--The Global Spread of Watchmaking-->
+                <div id="GlobalSpread"></div>
+            </div>
+        </div>
         <!--Load Chart-->
         <script>
             // Section 1: Watches History
             vegaEmbed('#ProductionTimeline', 'Chart/productionTimeline.json');
             vegaEmbed('#ManufacturerEvolution', 'Chart/manufacturerEvolution.json');
+            // Section 2: Global WatchMakingS
+            vegaEmbed('#GlobalOrigins', 'Chart/globalOriginsofWatchManufacturers.json');
+            vegaEmbed('#GlobalHeadquarters', 'Chart/globalHeadquartersofWatchManufacturers.json');
+            vegaEmbed('#GlobalSpread', 'Chart/theGlobalSpreadofWatchmaking.json');
         </script>
     </body>
 

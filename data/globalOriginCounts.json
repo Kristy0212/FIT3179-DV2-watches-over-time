@@ -1,0 +1,150 @@
+[
+  {
+    "origin": "Switzerland",
+    "manufacturerCount": 123
+  },
+  {
+    "origin": "United States",
+    "manufacturerCount": 60
+  },
+  {
+    "origin": "France",
+    "manufacturerCount": 31
+  },
+  {
+    "origin": "Japan",
+    "manufacturerCount": 31
+  },
+  {
+    "origin": "Germany",
+    "manufacturerCount": 30
+  },
+  {
+    "origin": "China",
+    "manufacturerCount": 29
+  },
+  {
+    "origin": "United Kingdom",
+    "manufacturerCount": 23
+  },
+  {
+    "origin": "Italy",
+    "manufacturerCount": 17
+  },
+  {
+    "origin": "India",
+    "manufacturerCount": 12
+  },
+  {
+    "origin": "Russia",
+    "manufacturerCount": 11
+  },
+  {
+    "origin": "Denmark",
+    "manufacturerCount": 8
+  },
+  {
+    "origin": "Sweden",
+    "manufacturerCount": 8
+  },
+  {
+    "origin": "Singapore",
+    "manufacturerCount": 7
+  },
+  {
+    "origin": "Finland",
+    "manufacturerCount": 6
+  },
+  {
+    "origin": "Australia",
+    "manufacturerCount": 5
+  },
+  {
+    "origin": "Hong Kong",
+    "manufacturerCount": 4
+  },
+  {
+    "origin": "Spain",
+    "manufacturerCount": 4
+  },
+  {
+    "origin": "Netherlands",
+    "manufacturerCount": 4
+  },
+  {
+    "origin": "Belgium",
+    "manufacturerCount": 4
+  },
+  {
+    "origin": "Poland",
+    "manufacturerCount": 3
+  },
+  {
+    "origin": "Canada",
+    "manufacturerCount": 3
+  },
+  {
+    "origin": "Indonesia",
+    "manufacturerCount": 3
+  },
+  {
+    "origin": "Norway",
+    "manufacturerCount": 3
+  },
+  {
+    "origin": "Austria",
+    "manufacturerCount": 2
+  },
+  {
+    "origin": "New Zealand",
+    "manufacturerCount": 2
+  },
+  {
+    "origin": "Philippines",
+    "manufacturerCount": 2
+  },
+  {
+    "origin": "Malaysia",
+    "manufacturerCount": 2
+  },
+  {
+    "origin": "South Korea",
+    "manufacturerCount": 2
+  },
+  {
+    "origin": "Thailand",
+    "manufacturerCount": 2
+  },
+  {
+    "origin": "Cuba",
+    "manufacturerCount": 1
+  },
+  {
+    "origin": "Vietnam",
+    "manufacturerCount": 1
+  },
+  {
+    "origin": "Israel",
+    "manufacturerCount": 1
+  },
+  {
+    "origin": "Ukraine",
+    "manufacturerCount": 1
+  },
+  {
+    "origin": "Belarus",
+    "manufacturerCount": 1
+  },
+  {
+    "origin": "Czech Republic",
+    "manufacturerCount": 1
+  },
+  {
+    "origin": "Isle of Man",
+    "manufacturerCount": 1
+  },
+  {
+    "origin": "Lithuania",
+    "manufacturerCount": 1
+  }
+]
