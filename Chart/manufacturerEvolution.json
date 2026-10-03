@@ -3,7 +3,7 @@
     "title":{
         "text": "Manufacturer Evolution",
         "subtitle": "How did individual manufacturer appear, disappear and revive until 2026",
-        "font": "san-serif",
+        "font": "sans-serif",
         "fontSize": 22,
         "fontWeight": "bold",
         "subtitleFont": "san-serif",

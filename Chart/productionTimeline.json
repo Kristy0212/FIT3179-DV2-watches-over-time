@@ -3,7 +3,7 @@
     "title":{
         "text": "Production Timeline",
         "subtitle": "When were most watch brand found?",
-        "font": "san-serif",
+        "font": "sans-serif",
         "fontSize": 22,
         "fontWeight": "bold",
         "subtitleFont": "san-serif",
