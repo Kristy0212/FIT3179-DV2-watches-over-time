@@ -1,0 +1,438 @@
+[
+  {
+    "origin": "Switzerland",
+    "activeCount": 94
+  },
+  {
+    "origin": "Japan",
+    "activeCount": 29
+  },
+  {
+    "origin": "China",
+    "activeCount": 26
+  },
+  {
+    "origin": "Germany",
+    "activeCount": 22
+  },
+  {
+    "origin": "United States",
+    "activeCount": 18
+  },
+  {
+    "origin": "France / Switzerland",
+    "activeCount": 14
+  },
+  {
+    "origin": "France",
+    "activeCount": 11
+  },
+  {
+    "origin": "United Kingdom",
+    "activeCount": 10
+  },
+  {
+    "origin": "United States / Switzerland",
+    "activeCount": 10
+  },
+  {
+    "origin": "India",
+    "activeCount": 9
+  },
+  {
+    "origin": "United States / licensing",
+    "activeCount": 9
+  },
+  {
+    "origin": "Italy / Switzerland",
+    "activeCount": 7
+  },
+  {
+    "origin": "Sweden",
+    "activeCount": 7
+  },
+  {
+    "origin": "Italy",
+    "activeCount": 6
+  },
+  {
+    "origin": "Singapore",
+    "activeCount": 5
+  },
+  {
+    "origin": "Soviet Union / Russia",
+    "activeCount": 5
+  },
+  {
+    "origin": "Hong Kong",
+    "activeCount": 4
+  },
+  {
+    "origin": "Netherlands",
+    "activeCount": 4
+  },
+  {
+    "origin": "Finland",
+    "activeCount": 4
+  },
+  {
+    "origin": "Germany / licensing",
+    "activeCount": 3
+  },
+  {
+    "origin": "Australia",
+    "activeCount": 3
+  },
+  {
+    "origin": "Poland",
+    "activeCount": 3
+  },
+  {
+    "origin": "Spain",
+    "activeCount": 3
+  },
+  {
+    "origin": "Switzerland / France",
+    "activeCount": 3
+  },
+  {
+    "origin": "United Kingdom / Switzerland",
+    "activeCount": 3
+  },
+  {
+    "origin": "Indonesia",
+    "activeCount": 3
+  },
+  {
+    "origin": "Norway",
+    "activeCount": 3
+  },
+  {
+    "origin": "Denmark",
+    "activeCount": 2
+  },
+  {
+    "origin": "Denmark / Switzerland",
+    "activeCount": 2
+  },
+  {
+    "origin": "Italy / United States licensing",
+    "activeCount": 2
+  },
+  {
+    "origin": "England heritage / Switzerland modern",
+    "activeCount": 2
+  },
+  {
+    "origin": "Italy / licensing",
+    "activeCount": 2
+  },
+  {
+    "origin": "India / Switzerland",
+    "activeCount": 2
+  },
+  {
+    "origin": "France heritage / Switzerland modern",
+    "activeCount": 2
+  },
+  {
+    "origin": "Switzerland / licensing",
+    "activeCount": 2
+  },
+  {
+    "origin": "Canada / international production",
+    "activeCount": 2
+  },
+  {
+    "origin": "Russia",
+    "activeCount": 2
+  },
+  {
+    "origin": "United States / Asia production",
+    "activeCount": 2
+  },
+  {
+    "origin": "Belgium / Switzerland",
+    "activeCount": 2
+  },
+  {
+    "origin": "Thailand",
+    "activeCount": 2
+  },
+  {
+    "origin": "United States / Switzerland / Japan ownership",
+    "activeCount": 1
+  },
+  {
+    "origin": "United States / global production",
+    "activeCount": 1
+  },
+  {
+    "origin": "Spain / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "China / France / Hong Kong",
+    "activeCount": 1
+  },
+  {
+    "origin": "Singapore / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "United States origin / Switzerland modern",
+    "activeCount": 1
+  },
+  {
+    "origin": "Australia / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "United States / Swiss sourcing",
+    "activeCount": 1
+  },
+  {
+    "origin": "Singapore / Malaysia",
+    "activeCount": 1
+  },
+  {
+    "origin": "France origin / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "Austria / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "France / Switzerland production",
+    "activeCount": 1
+  },
+  {
+    "origin": "Germany origin / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "United States / China",
+    "activeCount": 1
+  },
+  {
+    "origin": "Cuba origin / Switzerland modern",
+    "activeCount": 1
+  },
+  {
+    "origin": "Vietnam",
+    "activeCount": 1
+  },
+  {
+    "origin": "Switzerland / Poland / France",
+    "activeCount": 1
+  },
+  {
+    "origin": "Sweden / Asia production",
+    "activeCount": 1
+  },
+  {
+    "origin": "New Zealand / South African",
+    "activeCount": 1
+  },
+  {
+    "origin": "Australia / international production",
+    "activeCount": 1
+  },
+  {
+    "origin": "Switzerland origin / Spain",
+    "activeCount": 1
+  },
+  {
+    "origin": "United States / Asia and Switzerland production",
+    "activeCount": 1
+  },
+  {
+    "origin": "United States / Taiwan production",
+    "activeCount": 1
+  },
+  {
+    "origin": "Austria",
+    "activeCount": 1
+  },
+  {
+    "origin": "Germany / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "Philippines",
+    "activeCount": 1
+  },
+  {
+    "origin": "Belgium / Asia production",
+    "activeCount": 1
+  },
+  {
+    "origin": "United States / United Kingdom / global",
+    "activeCount": 1
+  },
+  {
+    "origin": "Switzerland origin / United States",
+    "activeCount": 1
+  },
+  {
+    "origin": "Israel",
+    "activeCount": 1
+  },
+  {
+    "origin": "Switzerland / U.S.",
+    "activeCount": 1
+  },
+  {
+    "origin": "United States / Switzerland and Asia production",
+    "activeCount": 1
+  },
+  {
+    "origin": "Switzerland / Spain ownership",
+    "activeCount": 1
+  },
+  {
+    "origin": "Ukraine",
+    "activeCount": 1
+  },
+  {
+    "origin": "Belgium",
+    "activeCount": 1
+  },
+  {
+    "origin": "France / licensing",
+    "activeCount": 1
+  },
+  {
+    "origin": "Finland / international production",
+    "activeCount": 1
+  },
+  {
+    "origin": "Denmark / United Kingdom / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "Japan / global",
+    "activeCount": 1
+  },
+  {
+    "origin": "Belarus",
+    "activeCount": 1
+  },
+  {
+    "origin": "New Zealand",
+    "activeCount": 1
+  },
+  {
+    "origin": "Philippines / international production",
+    "activeCount": 1
+  },
+  {
+    "origin": "Canada / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "Malaysia / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "Germany origin / Switzerland watchmaking",
+    "activeCount": 1
+  },
+  {
+    "origin": "Switzerland / U.S. corporate center",
+    "activeCount": 1
+  },
+  {
+    "origin": "Denmark / Asia production",
+    "activeCount": 1
+  },
+  {
+    "origin": "United Kingdom / Asia production",
+    "activeCount": 1
+  },
+  {
+    "origin": "Switzerland / Polish founders",
+    "activeCount": 1
+  },
+  {
+    "origin": "Germany / Austria / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "Czech Republic",
+    "activeCount": 1
+  },
+  {
+    "origin": "Malaysia",
+    "activeCount": 1
+  },
+  {
+    "origin": "Isle of Man / United Kingdom",
+    "activeCount": 1
+  },
+  {
+    "origin": "United Kingdom origin / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "South Korea",
+    "activeCount": 1
+  },
+  {
+    "origin": "South Korea / global production",
+    "activeCount": 1
+  },
+  {
+    "origin": "United Kingdom / Soviet sourcing",
+    "activeCount": 1
+  },
+  {
+    "origin": "Denmark identity / United States",
+    "activeCount": 1
+  },
+  {
+    "origin": "United Kingdom founder / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "Switzerland / Italy",
+    "activeCount": 1
+  },
+  {
+    "origin": "Soviet Union / Russia / Germany",
+    "activeCount": 1
+  },
+  {
+    "origin": "United Kingdom / international production",
+    "activeCount": 1
+  },
+  {
+    "origin": "Switzerland / Brazil and Japan markets",
+    "activeCount": 1
+  },
+  {
+    "origin": "United Kingdom / licensing",
+    "activeCount": 1
+  },
+  {
+    "origin": "Denmark origin / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "United States / international production",
+    "activeCount": 1
+  },
+  {
+    "origin": "Lithuania",
+    "activeCount": 1
+  },
+  {
+    "origin": "Finland origin / Switzerland",
+    "activeCount": 1
+  },
+  {
+    "origin": "Switzerland / U.S. ownership",
+    "activeCount": 1
+  }
+]
