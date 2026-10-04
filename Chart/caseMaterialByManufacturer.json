@@ -1,0 +1,90 @@
+{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{
+        "text": "Case Material by Manufacturer",
+        "subtitle": "What materials are most commonly used across watch brands?",
+        "font": "sans-serif",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "subtitleFont": "sans-serif",
+        "subtitleFontWeight": "normal",
+        "anchor":"start",
+        "offset": 10
+    },
+    "width": 1100,
+    "height": 450,
+    "data":{
+        "url": "data/manufacturerCaseMaterial.json"
+    },
+    "mark": {
+        "type": "bar"
+    },
+    "encoding":{
+        "x":{
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "Percentage of Watches (%)",
+            "scale":{
+                "domain": [0,100]
+            }
+        },
+        "y":{
+            "field": "brand",
+            "type": "nominal",
+            "title": "Manufacturer",
+            "sort":{
+                "op": "sum",
+                "field": "watchCount",
+                "order": "descending"
+            }
+        },
+        "color":{
+            "field": "materialGroup",
+            "type": "nominal",
+            "title": "Case Material",
+            "scale":{
+                "domain":[
+                    "Steel",
+                    "Gold / Gold combination",
+                    "Titanium",
+                    "Ceramic",
+                    "Platinum",
+                    "Other"
+                ],
+                "range":[
+                    "#8C6A4A",
+                    "#C8A15A",
+                    "#7D8C8D",
+                    "#6B6E73",
+                    "#B7A6A1",
+                    "#D8CFC3"
+                ]
+            }
+        },      
+        "tooltip":[
+            {
+                "field": "brand",
+                "type": "nominal",
+                "title": "Manufacturer"
+            },
+            {
+                "field": "materialGroup",
+                "type": "nominal",
+                "title": "Case Material"
+            },
+            {
+                "field": "percentage",
+                "type": "quantitative",
+                "title": "Percentage",
+                "format": ".1f"
+            },
+            {
+                "field": "watchCount",
+                "type": "quantitative",
+                "title": "Watch Count",
+                "format": ","
+            }
+            
+        ]
+    }
+}

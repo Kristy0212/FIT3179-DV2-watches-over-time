@@ -119,6 +119,10 @@
                 <div id="WatchSizeDistribution"></div>
             </div>
         </div>
+        <div class="chart-card">
+            <!--Case Material By Manufacturer-->
+            <div id="CaseMaterial"></div>
+        </div>
         
         <!--Load Chart-->
         <script>
@@ -132,6 +136,7 @@
             // Section 3: Watch Characteristics
             vegaEmbed('#WatchProductionAcrossPeriod', 'Chart/manufacturerProductionPeriod.json');
             vegaEmbed('#WatchSizeDistribution', 'Chart/watchSizeDistribution.json');
+            vegaEmbed('#CaseMaterial', 'Chart/caseMaterialByManufacturer.json');
         </script>
     </body>
 
