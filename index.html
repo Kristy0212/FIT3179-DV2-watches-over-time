@@ -104,7 +104,7 @@
             <!--The Global Spread of Watchmaking-->
             <div id="GlobalSpread"></div>
         </div>
-        
+
          <!--Section 3: Watch Characteristics-->
         <div class="section-header">
             <h2>3. Watch characteristics</h2>
@@ -113,6 +113,10 @@
             <div class="chart-card">
                 <!--Watch Production Across Period-->
                 <div id="WatchProductionAcrossPeriod"></div>
+            </div>
+            <div class="chart-card">
+                <!--WatchSizeDistribution-->
+                <div id="WatchSizeDistribution"></div>
             </div>
         </div>
         
@@ -127,6 +131,7 @@
             vegaEmbed('#GlobalSpread', 'Chart/globalSpreadofWatchMaking.json');
             // Section 3: Watch Characteristics
             vegaEmbed('#WatchProductionAcrossPeriod', 'Chart/manufacturerProductionPeriod.json');
+            vegaEmbed('#WatchSizeDistribution', 'Chart/watchSizeDistribution.json');
         </script>
     </body>
 

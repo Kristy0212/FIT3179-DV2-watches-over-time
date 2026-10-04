@@ -1,0 +1,63 @@
+{
+  "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{
+        "text": "Watch Size Distribution",
+        "subtitle": "How has watch size vary across production years?",
+        "font": "sans-serif",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "subtitleFont": "sans-serif",
+        "subtitleFontWeight": "normal",
+        "anchor":"start",
+        "offset": 10
+    },
+    "width": 450,
+    "height": 300,
+    "data":{
+        "url": "data/watchSizeDistribution.json"
+    },
+    "mark":{
+        "type":"boxplot",
+        "extent": "min-max",
+        "size": 50,
+        "color": "#704735"
+    },
+    "encoding":{
+        "x": {
+            "field": "productionPeriod",
+            "type": "ordinal",
+            "title": "Production Period",
+            "sort": [
+                "Before 1950",
+                "1950-1969",
+                "1970-1989",
+                "1990-2009",
+                "2010+"
+            ],
+            "axis": {
+                "labelAngle": 0
+            }
+        },
+        "y":{
+            "field": "size_mm",
+            "type": "quantitative",
+            "title": "Watch Size (mm)",
+            "scale": {
+                "domain": [15,60]
+            }
+        },
+        "tooltip":[
+            {
+                "field":"productionPeriod",
+                "type": "nominal",
+                "title": "ProductionPeriod"
+            },
+            {
+                "field": "size_mm",
+                "type": "quantitative",
+                "title": "Size(mm)",
+                "format":".1f"
+            }
+        ]
+    }
+}
