@@ -105,15 +105,28 @@
             <div id="GlobalSpread"></div>
         </div>
         
+         <!--Section 3: Watch Characteristics-->
+        <div class="section-header">
+            <h2>3. Watch characteristics</h2>
+        </div>
+        <div class="chart-row">
+            <div class="chart-card">
+                <!--Watch Production Across Period-->
+                <div id="WatchProductionAcrossPeriod"></div>
+            </div>
+        </div>
+        
         <!--Load Chart-->
         <script>
             // Section 1: Watches History
             vegaEmbed('#ProductionTimeline', 'Chart/productionTimeline.json');
             vegaEmbed('#ManufacturerEvolution', 'Chart/manufacturerEvolution.json');
-            // Section 2: Global WatchMakingS
+            // Section 2: Global WatchMakings
             vegaEmbed('#GlobalOrigins', 'Chart/globalOriginsofWatchManufacturers.json');
             vegaEmbed('#GlobalActive', 'Chart/ActiveWatchBrandsAroundtheWorld.json');
             vegaEmbed('#GlobalSpread', 'Chart/globalSpreadofWatchMaking.json');
+            // Section 3: Watch Characteristics
+            vegaEmbed('#WatchProductionAcrossPeriod', 'Chart/manufacturerProductionPeriod.json');
         </script>
     </body>
 

@@ -1,0 +1,78 @@
+{
+  "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{
+        "text": "Watch Production Across Periods",
+        "subtitle": "How has watch production varied across different periods?",
+        "font": "sans-serif",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "subtitleFont": "sans-serif",
+        "subtitleFontWeight": "normal",
+        "anchor":"start",
+        "offset": 10
+    },
+    "width": 450,
+    "height": 300,
+    "data":{
+        "url": "data/manufacturerProductionPeriod.json"
+    },
+    "mark":{
+        "type": "rect"
+    },
+    "encoding":{
+        "x":{
+            "field": "productionPeriod",
+            "type": "ordinal",
+            "sort": {
+                "field": "periodOrder",
+                "order": "ascending"
+            },
+            "title": "Production Period",
+            "axis":{
+                "labelAngle": -45
+            }
+        },
+        "y":{
+            "field": "brand",
+            "type": "nominal",
+            "sort":{
+                "field": "watchCount",
+                "op": "sum",
+                "order": "descending"
+            },
+            "title": "Manufacturer"
+        },
+        "color": {
+            "field": "watchCount",
+            "type": "quantitative",
+            "title": "Number of Watches",
+            "scale":{
+                "range": [
+                    "#F7F3EA",
+                    "#E8D8C4",
+                    "#CFAF91",
+                    "#A97855",
+                    "#704735"
+                ]
+            }
+        },
+        "tooltip":[
+            {
+                "field":"brand",
+                "type": "nominal",
+                "title": "Manufacturer"
+            },
+            {
+                "field": "productionPeriod",
+                "type": "ordinal",
+                "title": "Production Period"
+            },
+            {
+                "field": "watchCount",
+                "type": "quantitative",
+                "title": "Number of Watches",
+                "format":","
+            }
+        ]
+    }
+}
