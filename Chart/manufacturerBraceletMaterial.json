@@ -1,0 +1,91 @@
+{
+  "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{
+        "text": "Bracelet & Strap Materials",
+        "subtitle": "How do bracelet and strap materials vary across manufacturers?",
+        "font": "sans-serif",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "subtitleFont": "sans-serif",
+        "subtitleFontWeight": "normal",
+        "anchor":"start",
+        "offset": 10
+    },
+    "width": 450,
+    "height": 300,
+    "data":{
+        "url": "data/manufacturerBraceletMaterial.json"
+    },
+    "mark":{
+        "type": "rect"
+    },
+    "encoding":{
+        "x":{
+            "field": "materialGroup",
+            "type": "nominal",
+            "sort": [
+                "Steel",
+                "Gold / Gold combination",
+                "Leather / Animal skin",
+                "Rubber",
+                "Titanium",
+                "Ceramic",
+                "Textile",
+                "Other"
+            ],
+            "title": "Bracelet / Strap Material",
+            "axis":{
+                "labelAngle": -45
+            }
+        },
+        "y":{
+            "field": "brand",
+            "type": "nominal",
+            "sort": {
+                "op": "sum",
+                "field": "percentage",
+                "order": "descending"
+            },
+            "title": "Manufacturer"
+        },
+        "color": {
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "Percentage (%)",
+            "scale":{
+                "range": [
+                    "#F7F3EA",
+                    "#E8D8C4",
+                    "#CFAF91",
+                    "#A97855",
+                    "#704735"
+                ],
+                "domain": [0, 20, 40, 60, 80]
+            }
+        },
+        "tooltip":[
+            {
+                "field":"brand",
+                "type": "nominal",
+                "title": "Manufacturer"
+            },
+            {
+                "field": "materialGroup",
+                "type": "nominal",
+                "title": "Material"
+            },
+            {
+                "field": "percentage",
+                "type": "quantitative",
+                "title": "Percentage",
+                "format":".1f"
+            },
+            {
+                "field": "watchCount",
+                "type": "quantitative",
+                "title": "Watch Count",
+                "format":","
+            }
+        ]
+    }
+}
