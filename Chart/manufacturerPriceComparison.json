@@ -1,0 +1,122 @@
+{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{
+        "text": "Manufacturer Price Comparison",
+        "subtitle": "How do median and average watch prices compare across manufacturers?",
+        "font": "sans-serif",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "subtitleFont": "sans-serif",
+        "subtitleFontWeight": "normal",
+        "anchor":"start",
+        "offset": 10
+    },
+    "width": 450,
+    "height": 300,
+    "data":{
+        "url": "data/manufacturerPriceComparison.json"
+    },
+    "layer":[
+        {
+            "mark":{
+                "type": "rule",
+                "color": "#C8B8A8",
+                "strokeWidth": 2
+            },
+            "encoding":{
+                "y":{
+                    "field":"brand",
+                    "type":"nominal",
+                    "sort":{
+                        "op":"median",
+                        "field":"medianPrice",
+                        "order":"descending"
+                    },
+                    "title": "Manufacturer"
+                },
+                "x":{
+                    "field": "medianPrice",
+                    "type":"quantitative"
+                },
+                "x2":{
+                    "field":"averagePrice"
+                }
+            }
+        },
+        {
+            "transform": [
+                {
+                    "fold":[
+                        "medianPrice",
+                        "averagePrice"
+                    ],
+                    "as":[
+                        "priceType",
+                        "price"
+                    ]
+                },
+                {
+                    "calculate": "datum.priceType == 'medianPrice' ? 'Median price' : 'Average price'",
+                    "as": "priceLabel"
+                }
+            ],
+            "mark":{
+                "type": "circle",
+                "size": 90
+            },
+            "encoding":{
+                "y":{
+                    "field": "brand",
+                    "type": "nominal",
+                    "sort": {
+                        "op": "median",
+                        "field":"medianPrice",
+                        "order": "descending"
+                    }
+                },
+                "x":{
+                    "field": "price",
+                    "type": "quantitative",
+                    "title": "Watch Price (USD)",
+                    "axis":{
+                        "format": "$,.0f",
+                        "grid": false
+                    }
+                },
+                "color":{
+                    "field": "priceLabel",
+                    "type": "nominal",
+                    "title":"Price measure",
+                    "scale":{
+                        "domain":[
+                            "Median price",
+                            "Average price"
+                        ],
+                        "range": [
+                            "#704735",
+                            "#C8A15A"
+                        ]
+                    }
+                },
+                "tooltip":[
+                    {
+                        "field":"brand",
+                        "type": "nominal",
+                        "title":"Manufacturer"
+                    },
+                    {
+                        "field": "priceLabel",
+                        "type": "nominal",
+                        "title": "Measure"
+                    },
+                    {
+                        "field": "price",
+                        "type": "quantitative",
+                        "title": "Price",
+                        "format": "$,.0f"
+                    }
+                ]
+            }
+        }
+    ]
+}

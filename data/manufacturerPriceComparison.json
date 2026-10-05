@@ -1,0 +1,62 @@
+[
+  {
+    "brand":"Patek Philippe",
+    "medianPrice":61750.0,
+    "averagePrice":102007.8319398779,
+    "watchCount":10645
+  },
+  {
+    "brand":"Audemars Piguet",
+    "medianPrice":48500.0,
+    "averagePrice":73932.4830662782,
+    "watchCount":10984
+  },
+  {
+    "brand":"Rolex",
+    "medianPrice":14670.0,
+    "averagePrice":21854.8640222099,
+    "watchCount":68798
+  },
+  {
+    "brand":"Hublot",
+    "medianPrice":14499.0,
+    "averagePrice":18755.1194238324,
+    "watchCount":11455
+  },
+  {
+    "brand":"Cartier",
+    "medianPrice":5768.0,
+    "averagePrice":8919.8431063803,
+    "watchCount":15877
+  },
+  {
+    "brand":"Breitling",
+    "medianPrice":4914.0,
+    "averagePrice":5924.5215935131,
+    "watchCount":17019
+  },
+  {
+    "brand":"Omega",
+    "medianPrice":4900.0,
+    "averagePrice":6390.5210362641,
+    "watchCount":38909
+  },
+  {
+    "brand":"TAG Heuer",
+    "medianPrice":2510.0,
+    "averagePrice":3205.5370297342,
+    "watchCount":12679
+  },
+  {
+    "brand":"Longines",
+    "medianPrice":1795.0,
+    "averagePrice":2347.2709510201,
+    "watchCount":15047
+  },
+  {
+    "brand":"Seiko",
+    "medianPrice":570.0,
+    "averagePrice":1131.5299941759,
+    "watchCount":18887
+  }
+]

@@ -133,6 +133,10 @@
                 <!--Watch Production Across Period-->
                 <div id="PriceEvolution"></div>
             </div>
+            <div class="chart-card">
+                <!--Manufacturer Price Comparison-->
+                <div id="ManufacturerPrice"></div>
+            </div>
         </div>
         <!--Load Chart-->
         <script>
@@ -149,6 +153,7 @@
             vegaEmbed('#CaseMaterial', 'Chart/caseMaterialByManufacturer.json');
             // Section 4: Design and Values 
             vegaEmbed('#PriceEvolution', 'Chart/priceEvolution.json');
+            vegaEmbed('#ManufacturerPrice', 'Chart/manufacturerPriceComparison.json');
         </script>
     </body>
 
