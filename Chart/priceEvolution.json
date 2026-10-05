@@ -1,0 +1,66 @@
+{
+  "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "title":{
+        "text": "Price Evolution",
+        "subtitle": "How does the distribution of watch prices vary across production periods?",
+        "font": "sans-serif",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "subtitleFont": "sans-serif",
+        "subtitleFontWeight": "normal",
+        "anchor":"start",
+        "offset": 10
+    },
+    "width": 450,
+    "height": 300,
+    "data":{
+        "url": "data/watchPriceEvolution.json"
+    },
+    "mark":{
+        "type":"boxplot",
+        "extent": "min-max",
+        "size": 50,
+        "color": "#704735"
+    },
+    "encoding":{
+        "x": {
+            "field": "productionPeriod",
+            "type": "ordinal",
+            "title": "Production Period",
+            "sort": [
+                "Before 1950",
+                "1950-1969",
+                "1970-1989",
+                "1990-2009",
+                "2010+"
+            ],
+            "axis": {
+                "labelAngle": 0
+            }
+        },
+        "y":{
+            "field": "price_numeric",
+            "type": "quantitative",
+            "title": "Watch Price (USD)",
+            "scale":{
+                "type": "log"
+            },
+            "axis": {
+                "format": "$,.0f"
+            }
+        },
+        "tooltip":[
+            {
+                "field":"productionPeriod",
+                "type": "nominal",
+                "title": "ProductionPeriod"
+            },
+            {
+                "field": "price_numeric",
+                "type": "quantitative",
+                "title": "Watch Price",
+                "format": "$,.0f"
+            }
+        ]
+    }
+}
