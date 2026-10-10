@@ -1,0 +1,156 @@
+[
+  {
+    "foundingPeriod": "1800-1849",
+    "periodOrder": 2,
+    "iconIndex": 0,
+    "icon": "images/watch.svg",
+    "brandCount": 6
+  },
+  {
+    "foundingPeriod": "1850-1899",
+    "periodOrder": 3,
+    "iconIndex": 0,
+    "icon": "images/watch.svg",
+    "brandCount": 54
+  },
+  {
+    "foundingPeriod": "1850-1899",
+    "periodOrder": 3,
+    "iconIndex": 1,
+    "icon": "images/watch.svg",
+    "brandCount": 54
+  },
+  {
+    "foundingPeriod": "1850-1899",
+    "periodOrder": 3,
+    "iconIndex": 2,
+    "icon": "images/watch.svg",
+    "brandCount": 54
+  },
+  {
+    "foundingPeriod": "1850-1899",
+    "periodOrder": 3,
+    "iconIndex": 3,
+    "icon": "images/watch.svg",
+    "brandCount": 54
+  },
+  {
+    "foundingPeriod": "1850-1899",
+    "periodOrder": 3,
+    "iconIndex": 4,
+    "icon": "images/watch.svg",
+    "brandCount": 54
+  },
+  {
+    "foundingPeriod": "1850-1899",
+    "periodOrder": 3,
+    "iconIndex": 5,
+    "icon": "images/watch.svg",
+    "brandCount": 54
+  },
+  {
+    "foundingPeriod": "1850-1899",
+    "periodOrder": 3,
+    "iconIndex": 6,
+    "icon": "images/watch.svg",
+    "brandCount": 54
+  },
+  {
+    "foundingPeriod": "1850-1899",
+    "periodOrder": 3,
+    "iconIndex": 7,
+    "icon": "images/watch.svg",
+    "brandCount": 54
+  },
+  {
+    "foundingPeriod": "1850-1899",
+    "periodOrder": 3,
+    "iconIndex": 8,
+    "icon": "images/watch.svg",
+    "brandCount": 54
+  },
+  {
+    "foundingPeriod": "1850-1899",
+    "periodOrder": 3,
+    "iconIndex": 9,
+    "icon": "images/watch.svg",
+    "brandCount": 54
+  },
+  {
+    "foundingPeriod": "1900-1949",
+    "periodOrder": 4,
+    "iconIndex": 0,
+    "icon": "images/watch.svg",
+    "brandCount": 41
+  },
+  {
+    "foundingPeriod": "1900-1949",
+    "periodOrder": 4,
+    "iconIndex": 1,
+    "icon": "images/watch.svg",
+    "brandCount": 41
+  },
+  {
+    "foundingPeriod": "1900-1949",
+    "periodOrder": 4,
+    "iconIndex": 2,
+    "icon": "images/watch.svg",
+    "brandCount": 41
+  },
+  {
+    "foundingPeriod": "1900-1949",
+    "periodOrder": 4,
+    "iconIndex": 3,
+    "icon": "images/watch.svg",
+    "brandCount": 41
+  },
+  {
+    "foundingPeriod": "1900-1949",
+    "periodOrder": 4,
+    "iconIndex": 4,
+    "icon": "images/watch.svg",
+    "brandCount": 41
+  },
+  {
+    "foundingPeriod": "1900-1949",
+    "periodOrder": 4,
+    "iconIndex": 5,
+    "icon": "images/watch.svg",
+    "brandCount": 41
+  },
+  {
+    "foundingPeriod": "1900-1949",
+    "periodOrder": 4,
+    "iconIndex": 6,
+    "icon": "images/watch.svg",
+    "brandCount": 41
+  },
+  {
+    "foundingPeriod": "1900-1949",
+    "periodOrder": 4,
+    "iconIndex": 7,
+    "icon": "images/watch.svg",
+    "brandCount": 41
+  },
+  {
+    "foundingPeriod": "1950-1999",
+    "periodOrder": 5,
+    "iconIndex": 0,
+    "icon": "images/watch.svg",
+    "brandCount": 12
+  },
+  {
+    "foundingPeriod": "1950-1999",
+    "periodOrder": 5,
+    "iconIndex": 1,
+    "icon": "images/watch.svg",
+    "brandCount": 12
+  },
+  {
+    "foundingPeriod": "Before 1800",
+    "periodOrder": 1,
+    "iconIndex": 0,
+    "icon": "images/watch.svg",
+    "brandCount": 5
+  }
+]

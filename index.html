@@ -121,26 +121,66 @@
                 padding: 14px 20px;
                 margin-bottom: 20px;
             }
-            .section-header h2{
-                margin: 0;
+            .section-header h2 {
+                margin: 0 0 8px 0;
                 color: #634032;
                 font-family: Georgia, serif;
                 font-size: 24px;
             }
+
+            .section-header p {
+                margin: 0;
+                color: #634032;
+                font-size: 16px;
+                line-height: 1.5;
+            }
             @media (max-width: 768px) {
                 .dashboard-header {
                     padding: 24px 20px 16px;
+                }
+
+                .header-nav {
+                    justify-content: flex-start;
+                }
+
+                .header-nav a {
+                    font-size: 12px;
+                    padding: 8px 10px;
+                }
+            }
+            /* Stack each chart card and insight card vertically */
+            .chart-column {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 16px;
+                min-width: 0;
             }
 
-            .header-nav {
-                justify-content: flex-start;
+            .chart-insight-card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100px;
+                background: #EDEAE3;
+                border: 2px solid #BFA58D;
+                border-radius: 10px;
+                padding: 10px 20px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                box-sizing: border-box;
+                text-align: center;
             }
-
-            .header-nav a {
-                font-size: 12px;
-                padding: 8px 10px;
+            .chart-insight-card p {
+                margin: 0 auto;
+                max-width: 460px;
+                color: #3B2922;
+                font-family: Arial, sans-serif;
+                font-size: 16px;
+                line-height: 1.4;
+                text-align: center;
+                overflow-wrap: break-word;
             }
-        }
         </style>
     </head>
     <body>
@@ -164,16 +204,39 @@
         <!-- Section 1: Watches History -->
         <div class="section-header" id="history">
             <h2>1. Watch History</h2>
+            <p>
+                How did watch brands emerge and evolve throughout their history?
+            </p>
         </div>
         <div class="chart-row">
-            <div class="chart-card">
-                <!--Production Timeline Chart-->
-                <div id="ProductionTimeline"></div>
+            <!-- Chart 1 -->
+            <div class="chart-column">
+                <div class="chart-card">
+                    <div id="ProductionTimeline"></div>
+                </div>
+            <div class="chart-insight-card">
+                <p>
+                    Watch brand founding peaked between 1850 and 1899,
+                    with 54 brands in the dataset. This declined to
+                    41 brands in 1900–1949 and 12 in 1950–1999.
+                </p>
             </div>
+        </div>
+        <!-- Chart 2 -->
+        <div class="chart-column">
             <div class="chart-card">
-                <!--Manufacturer Evolution Chart-->
                 <div id="ManufacturerEvolution"></div>
             </div>
+
+            <div class="chart-insight-card">
+                <p>
+                    Some long-established watch manufacturers experienced
+                    revivals after their original operations ended,
+                    showing how historic watch brands can return
+                    years after becoming defunct.
+                </p>
+            </div>
+        </div>
         </div>
 
         <!-- Section 2: Global Watchmaking -->

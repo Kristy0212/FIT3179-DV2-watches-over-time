@@ -3,7 +3,7 @@
     "title":{
         "text": "Manufacturer Evolution",
         "subtitle": "How did individual manufacturer appear, disappear and revive until 2026",
-        "font": "sans-serif",
+        "font": "serif",
         "fontSize": 22,
         "fontWeight": "bold",
         "subtitleFont": "san-serif",
@@ -11,8 +11,8 @@
         "anchor":"start",
         "offset": 10
     },
-    "width": 450,
-    "height": 300,
+    "width": 400,
+    "height": 260,
     "data":{
         "url": "data/graveyard.json"
     },
@@ -139,7 +139,7 @@
                 "type": "point",
                 "filled": true,
                 "size": 60,
-                "color": "#d62728"
+                "color": "#b6b4b4"
             },
             "encoding":{
                 "x":{
@@ -258,7 +258,7 @@
                 "type": "nominal",
                 "scale":{
                     "domain":["Founded", "Defunct", "Revival"],
-                    "range": ["#2ca02c", "#d62728", "#1f77b4"]
+                    "range": ["#2ca02c", "#b6b4b4", "#1f77b4"]
                 },
                 "legend":{
                     "title":"Milestone",
