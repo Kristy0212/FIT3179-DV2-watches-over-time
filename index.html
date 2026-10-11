@@ -181,6 +181,56 @@
                 text-align: center;
                 overflow-wrap: break-word;
             }
+
+            /* Global Watchmaking header with filter */
+            .section-header-with-filter {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 24px;
+            }
+
+            .section-header-copy {
+            flex: 1;
+            min-width: 0;
+            }
+
+            .global-filter {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0;
+            }
+
+            .global-filter label {
+                color: #634032;
+                font-size: 14px;
+                font-weight: 600;
+            }
+
+            .global-filter select {
+                min-width: 155px;
+                padding: 10px 12px;
+                border: 1px solid #BFA58D;
+                border-radius: 6px;
+                background: #F7F3EA;
+                color: #3B2922;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+            @media (max-width: 768px) {
+                .section-header-with-filter {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 12px;
+                }
+
+                .global-filter {
+                    width: 100%;
+                }
+            }
         </style>
     </head>
     <body>
@@ -240,8 +290,19 @@
         </div>
 
         <!-- Section 2: Global Watchmaking -->
-        <div class="section-header" id="global">
-            <h2>2. Global Watchmaking</h2>
+        <div class="section-header section-header-with-filter" id="global">
+            <!-- Groups the title and subtitle on the left -->
+            <div class="section-header-copy">
+                <h2>2. Global Watchmaking</h2>
+                    <p>Where are watch brands located, and how did watchmaking spread?</p>
+            </div>
+
+            <!-- Filter on the right -->
+            <div class="global-filter">
+                <select id="countryFilter">
+                <option value="All countries">All countries</option>
+                </select>
+             </div>
         </div>
         <div class="chart-card">
             <!--Global Origins of Watch Manufacturers-->

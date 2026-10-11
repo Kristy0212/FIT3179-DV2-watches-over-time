@@ -1,150 +1,187 @@
 [
   {
     "origin": "Switzerland",
-    "manufacturerCount": 123
+    "manufacturerCount": 123,
+    "manufacturerPercentage": 27.39
   },
   {
     "origin": "United States",
-    "manufacturerCount": 60
+    "manufacturerCount": 60,
+    "manufacturerPercentage": 13.36
   },
   {
     "origin": "France",
-    "manufacturerCount": 31
+    "manufacturerCount": 31,
+    "manufacturerPercentage": 6.9
   },
   {
     "origin": "Japan",
-    "manufacturerCount": 31
+    "manufacturerCount": 31,
+    "manufacturerPercentage": 6.9
   },
   {
     "origin": "Germany",
-    "manufacturerCount": 30
+    "manufacturerCount": 30,
+    "manufacturerPercentage": 6.68
   },
   {
     "origin": "China",
-    "manufacturerCount": 29
+    "manufacturerCount": 29,
+    "manufacturerPercentage": 6.46
   },
   {
     "origin": "United Kingdom",
-    "manufacturerCount": 23
+    "manufacturerCount": 23,
+    "manufacturerPercentage": 5.12
   },
   {
     "origin": "Italy",
-    "manufacturerCount": 17
+    "manufacturerCount": 17,
+    "manufacturerPercentage": 3.79
   },
   {
     "origin": "India",
-    "manufacturerCount": 12
+    "manufacturerCount": 12,
+    "manufacturerPercentage": 2.67
   },
   {
     "origin": "Russia",
-    "manufacturerCount": 11
+    "manufacturerCount": 11,
+    "manufacturerPercentage": 2.45
   },
   {
     "origin": "Denmark",
-    "manufacturerCount": 8
+    "manufacturerCount": 8,
+    "manufacturerPercentage": 1.78
   },
   {
     "origin": "Sweden",
-    "manufacturerCount": 8
+    "manufacturerCount": 8,
+    "manufacturerPercentage": 1.78
   },
   {
     "origin": "Singapore",
-    "manufacturerCount": 7
+    "manufacturerCount": 7,
+    "manufacturerPercentage": 1.56
   },
   {
     "origin": "Finland",
-    "manufacturerCount": 6
+    "manufacturerCount": 6,
+    "manufacturerPercentage": 1.34
   },
   {
     "origin": "Australia",
-    "manufacturerCount": 5
+    "manufacturerCount": 5,
+    "manufacturerPercentage": 1.11
   },
   {
     "origin": "Hong Kong",
-    "manufacturerCount": 4
+    "manufacturerCount": 4,
+    "manufacturerPercentage": 0.89
   },
   {
     "origin": "Spain",
-    "manufacturerCount": 4
+    "manufacturerCount": 4,
+    "manufacturerPercentage": 0.89
   },
   {
     "origin": "Netherlands",
-    "manufacturerCount": 4
+    "manufacturerCount": 4,
+    "manufacturerPercentage": 0.89
   },
   {
     "origin": "Belgium",
-    "manufacturerCount": 4
+    "manufacturerCount": 4,
+    "manufacturerPercentage": 0.89
   },
   {
     "origin": "Poland",
-    "manufacturerCount": 3
+    "manufacturerCount": 3,
+    "manufacturerPercentage": 0.67
   },
   {
     "origin": "Canada",
-    "manufacturerCount": 3
+    "manufacturerCount": 3,
+    "manufacturerPercentage": 0.67
   },
   {
     "origin": "Indonesia",
-    "manufacturerCount": 3
+    "manufacturerCount": 3,
+    "manufacturerPercentage": 0.67
   },
   {
     "origin": "Norway",
-    "manufacturerCount": 3
+    "manufacturerCount": 3,
+    "manufacturerPercentage": 0.67
   },
   {
     "origin": "Austria",
-    "manufacturerCount": 2
+    "manufacturerCount": 2,
+    "manufacturerPercentage": 0.45
   },
   {
     "origin": "New Zealand",
-    "manufacturerCount": 2
+    "manufacturerCount": 2,
+    "manufacturerPercentage": 0.45
   },
   {
     "origin": "Philippines",
-    "manufacturerCount": 2
+    "manufacturerCount": 2,
+    "manufacturerPercentage": 0.45
   },
   {
     "origin": "Malaysia",
-    "manufacturerCount": 2
+    "manufacturerCount": 2,
+    "manufacturerPercentage": 0.45
   },
   {
     "origin": "South Korea",
-    "manufacturerCount": 2
+    "manufacturerCount": 2,
+    "manufacturerPercentage": 0.45
   },
   {
     "origin": "Thailand",
-    "manufacturerCount": 2
+    "manufacturerCount": 2,
+    "manufacturerPercentage": 0.45
   },
   {
     "origin": "Cuba",
-    "manufacturerCount": 1
+    "manufacturerCount": 1,
+    "manufacturerPercentage": 0.22
   },
   {
     "origin": "Vietnam",
-    "manufacturerCount": 1
+    "manufacturerCount": 1,
+    "manufacturerPercentage": 0.22
   },
   {
     "origin": "Israel",
-    "manufacturerCount": 1
+    "manufacturerCount": 1,
+    "manufacturerPercentage": 0.22
   },
   {
     "origin": "Ukraine",
-    "manufacturerCount": 1
+    "manufacturerCount": 1,
+    "manufacturerPercentage": 0.22
   },
   {
     "origin": "Belarus",
-    "manufacturerCount": 1
+    "manufacturerCount": 1,
+    "manufacturerPercentage": 0.22
   },
   {
     "origin": "Czech Republic",
-    "manufacturerCount": 1
+    "manufacturerCount": 1,
+    "manufacturerPercentage": 0.22
   },
   {
     "origin": "Isle of Man",
-    "manufacturerCount": 1
+    "manufacturerCount": 1,
+    "manufacturerPercentage": 0.22
   },
   {
     "origin": "Lithuania",
-    "manufacturerCount": 1
+    "manufacturerCount": 1,
+    "manufacturerPercentage": 0.22
   }
 ]
