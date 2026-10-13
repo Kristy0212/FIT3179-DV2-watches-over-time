@@ -1,22 +1,42 @@
 
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
   "title": {
     "text": "Global Origins of Watch Brands",
     "subtitle": "Where did watch brands originate?",
-    "font": "sans-serif",
-    "fontSize": 22,
+    "font": "serif",
+    "fontSize": 26,
     "fontWeight": "bold",
-    "subtitleFont": "sans-serif",
+    "subtitleFont": "serif",
+    "subtitleFontSize": 15,
     "subtitleFontWeight": "normal",
     "anchor": "start",
-    "offset": 10
+    "offset": 12
   },
-  "width": 1100,
-  "height": 450,
+
+  "width": "container",
+  "height": 500,
+
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+
   "projection": {
-    "type": "equalEarth"
+    "type": "equalEarth",
+    "scale": 185,
+    "translate": [500, 255]
   },
+
+  "params": [
+    {
+      "name": "selectedCountry",
+      "value": "All countries"
+    }
+  ],
+
   "data": {
     "url": "data/ne_110m_admin_0_countries.topojson",
     "format": {
@@ -24,14 +44,16 @@
       "feature": "ne_110m_admin_0_countries"
     }
   },
+
   "layer": [
     {
       "mark": {
         "type": "geoshape",
         "fill": "#E6DED2",
         "stroke": "#FFFFFF",
-        "strokeWidth": 0.6
+        "strokeWidth": 0.7
       },
+
       "encoding": {
         "tooltip": [
           {
@@ -42,6 +64,7 @@
         ]
       }
     },
+
     {
       "transform": [
         {
@@ -58,34 +81,47 @@
           }
         },
         {
-          "filter": "isValid(datum.manufacturerPercentage)"
+          "filter": "isValid(datum.manufacturerPercentage) && (selectedCountry === 'All countries' || datum.properties.NAME === selectedCountry)"
         }
       ],
+
       "mark": {
         "type": "geoshape",
         "stroke": "#FFFFFF",
-        "strokeWidth": 0.6
+        "strokeWidth": 0.7
       },
+
       "encoding": {
         "color": {
           "field": "manufacturerPercentage",
           "type": "quantitative",
           "title": "Share of brands (%)",
+
           "scale": {
             "type": "linear",
-            "domain": [0, 30],   
+            "domain": [0, 30],
             "range": [
-            "#DCC8AC",
-            "#B98A61",
-            "#8D5E3D",
-            "#634032"
+              "#C49A6C",
+              "#A8754F",
+              "#875A3C",
+              "#4B2E22"
             ],
             "clamp": true
           },
+
           "legend": {
-            "format": ".0f"
+            "orient": "right",
+            "direction": "vertical",
+            "offset": 20,
+            "titleAnchor": "end",
+            "titlePadding": 14,
+            "gradientLength": 250,
+            "gradientThickness": 20,
+            "labelFontSize": 13,
+            "titleFontSize": 14
           }
         },
+
         "tooltip": [
           {
             "field": "properties.NAME",
@@ -108,9 +144,21 @@
       }
     }
   ],
+
   "config": {
+    "background": "#FFFFFF",
+
     "view": {
       "stroke": null
+    },
+
+    "axis": {
+      "labelFont": "sans-serif",
+      "titleFont": "sans-serif"
+    },
+
+    "title": {
+      "color": "#211A16"
     }
   }
 }

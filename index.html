@@ -166,20 +166,25 @@
                 background: #EDEAE3;
                 border: 2px solid #BFA58D;
                 border-radius: 10px;
-                padding: 10px 20px;
+                padding: 16px 24px;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
                 box-sizing: border-box;
                 text-align: center;
             }
             .chart-insight-card p {
                 margin: 0 auto;
-                max-width: 460px;
+                max-width: 700px;
                 color: #3B2922;
                 font-family: Arial, sans-serif;
                 font-size: 16px;
-                line-height: 1.4;
+                line-height: 1.5;
                 text-align: center;
                 overflow-wrap: break-word;
+            }
+            @media (max-width: 768){
+                .insight-line-break {
+                    display:none;
+                }
             }
 
             /* Global Watchmaking header with filter */
@@ -187,12 +192,12 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                gap: 24px;
+                gap: 20px;
             }
 
             .section-header-copy {
-            flex: 1;
-            min-width: 0;
+                flex: 1;
+                min-width: 0;
             }
 
             .global-filter {
@@ -231,6 +236,61 @@
                     width: 100%;
                 }
             }
+            
+            .global-maps-column {
+                gap: 24px;
+            }
+            
+            .global-origin-card {
+                position: relative;
+                width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
+                background: white;
+                padding: 12px 16px 12px 8px;
+            }
+
+            .global-origin-card #GlobalOrigins {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .global-origin-card .origin-insight {
+                position: absolute;
+                right: 28px;
+                bottom: 30px;
+                width: 320px;
+                padding: 16px 18px;
+                background: #EDEAE3;
+                border: 2px solid #BFA58D;
+                border-radius: 10px;
+                box-sizing: border-box;
+                z-index: 10;
+            }
+
+            .origin-insight p {
+                margin: 0;
+                color: #3B2922;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            @media (max-width: 900px) {
+                .global-origin-card {
+                    min-height: 0;
+                }
+
+                .global-origin-card .origin-insight {
+                    position: static;
+                    width: auto;
+                    margin: 0 16px 16px;
+                }
+            }
+            .case-material-section{
+                margin-bottom: 30px
+            }
+
         </style>
     </head>
     <body>
@@ -266,9 +326,9 @@
                 </div>
             <div class="chart-insight-card">
                 <p>
-                    Watch brand founding peaked between 1850 and 1899,
-                    with 54 brands in the dataset. This declined to
-                    41 brands in 1900–1949 and 12 in 1950–1999.
+                    Watch brand founding peaked between 1850 and 1899, with <br class="insight-line-break">
+                    54 brands in the dataset. This declined to 41 brands <br class="insight-line-break">
+                    in 1900–1949 and 12 in 1950–1999.
                 </p>
             </div>
         </div>
@@ -280,9 +340,8 @@
 
             <div class="chart-insight-card">
                 <p>
-                    Some long-established watch manufacturers experienced
-                    revivals after their original operations ended,
-                    showing how historic watch brands can return
+                    Some long-established watch manufacturers experienced revivals after their original <br class="insight-line-break">
+                    operations ended, showing how historic watch brands can return <br class="insight-line-break">
                     years after becoming defunct.
                 </p>
             </div>
@@ -304,37 +363,94 @@
                 </select>
              </div>
         </div>
-        <div class="chart-card">
-            <!--Global Origins of Watch Manufacturers-->
-            <div id="GlobalOrigins"></div>
+
+        <div class="chart-column global-maps-column">
+             <!-- Map 1: Global Origins -->
+            <div class="chart-card global-origin-card">
+                <div id="GlobalOrigins"></div>
+                    <!-- Insight card positioned at the bottom-right -->
+                    <div class="global-map-annotation origin-insight">
+                        <p>
+                            Switzerland accounts for 123 of the 449 recorded
+                            brands with historical origins (27.39%), followed
+                            by the United States with 60 brands (13.36%).
+                        </p>
+                    </div>
+            </div>
+            <!-- Map 2: Historical Watchmaking Hubs -->
+            <div class="chart-card global-origin-card">
+                <div id="GlobalSpread"></div>
+                    <!-- Insight card positioned at the bottom-right -->
+                    <div class="global-map-annotation origin-insight">
+                        <p>
+                            Switzerland accounts for 123 of the 449 recorded
+                            brands with historical origins (27.39%), followed
+                            by the United States with 60 brands (13.36%).
+                        </p>
+                    </div>
+            </div>
+            <!-- Map 3: Current Watch Brands Worldwide -->
+            <div class="chart-card global-origin-card">
+                <div id="CurrentWatchBrands"></div>
+                    <!-- Insight card positioned at the bottom-right -->
+                    <div class="global-map-annotation origin-insight">
+                        <p>
+                            Switzerland accounts for 123 of the 449 recorded
+                            brands with historical origins (27.39%), followed
+                            by the United States with 60 brands (13.36%).
+                        </p>
+                    </div>
+            </div>
         </div>
-        <div class="chart-card">
-            <!--The Global Spread of Watchmaking-->
-            <div id="GlobalSpread"></div>
-        </div>
-        <div class="chart-card">
-            <div id="CurrentWatchBrands"></div>
-        </div>
+
+
 
         <!-- Section 3: Watch Characteristics -->
         <div class="section-header" id="characteristics">
             <h2>3. Watch Characteristics</h2>
+            <p>How have watch production, sizes, and materials varied over time?</p>
         </div>
         <div class="chart-row">
-            <div class="chart-card">
-                <!--Watch Production Across Period-->
-                <div id="WatchProductionAcrossPeriod"></div>
-            </div>
-            <div class="chart-card">
-                <!--WatchSizeDistribution-->
-                <div id="WatchSizeDistribution"></div>
+            <div class="chart-column">
+                <div class="chart-card">
+                    <div id="WatchProductionAcrossPeriod"></div>
+                </div>
+            <div class="chart-insight-card">
+                <p>
+                    The number of recorded watches is highest in the 2010+ <br class="insight-line-break">
+                    period, particularly for Rolex, suggesting a greater representation of <br class="insight-line-break">
+                    recent-period watches in this dataset.
+                </p>
             </div>
         </div>
-        <div class="chart-card">
-            <!--Case Material By Manufacturer-->
-            <div id="CaseMaterial"></div>
+        <div class="chart-column">
+                <div class="chart-card">
+                    <div id="WatchSizeDistribution"></div>
+                </div>
+                <div class="chart-insight-card">
+                    <p>
+                        Typical watch sizes shift from around 35mm in earlier periods <br class="insight-line-break">
+                        to 40-41mm after 1990. Before 1950, a second peak <br class="insight-line-break">
+                        near 50mm suggest greater variation.<br class="insight-line-break">
+                    </p>
+                </div>
+            </div>
         </div>
-        
+        <div class="chart-row">
+            <div class="chart-column" style="grid-column: 1 / -1;">
+                <div class="chart-card">
+                    <!--Case Material By Manufacturer-->
+                    <div id="CaseMaterial"></div>
+                </div>
+                <div class="chart-insight-card">
+                    <p>
+                        Steel dominates several manufacturers, while gold combination and other materials<br class="insight-line-break">
+                        contribute different shares across brands.
+                    </p>
+                </div>    
+            </div>
+        </div>
+
         <!-- Section 4: Design and Value -->
         <div class="section-header" id="value">
             <h2>4. Design and Value</h2>
@@ -349,10 +465,15 @@
                 <div id="ManufacturerPrice"></div>
             </div>
         </div>
-        <div class="chart-card">
-            <!--BraceletMaterial-->
-            <div id="BraceletMaterial"></div>
+        <div class="chart-row">
+            <div class="chart-column" style="grid-column: 1 / -1;">
+                <div class="chart-card">
+                    <div id="BraceletMaterial"></div>
+                </div>   
+            </div>
         </div>
+
+        
 
         <!--Load Chart-->
         <script>
@@ -371,6 +492,136 @@
             vegaEmbed('#PriceEvolution', 'Chart/priceEvolution.json');
             vegaEmbed('#ManufacturerPrice', 'Chart/manufacturerPriceComparison.json');
             vegaEmbed('#BraceletMaterial', 'Chart/manufacturerBraceletMaterial.json');
+            
+            const countryFilter = document.getElementById("countryFilter");
+
+            // Resolve dataset country names to the names used by the world map.
+            async function populateCountryFilter() {
+            const files = [
+            "data/ne_110m_admin_0_countries.topojson",
+            "data/globalOriginCounts.json",
+            "data/globalEmergenceFlow.json",
+            "data/brands.json"
+            ];
+
+            const [topo, origins, hubs, brands] = await Promise.all(
+                files.map(async url => {
+                    const response = await fetch(url);
+                    if (!response.ok) {
+                        throw new Error(`Could not load ${url}: ${response.status}`);
+                    }
+                    return response.json();
+                })
+            );
+
+            const geometries = topo.objects.ne_110m_admin_0_countries.geometries;
+
+            const mapNames = new Set(
+                geometries
+                    .map(g => g.properties?.NAME)
+                    .filter(Boolean)
+            );
+
+            const aliases = {
+                "USA": ["United States of America"],
+                "United States": ["United States of America"],
+                "Czech Republic": ["Czechia"],
+                "Hong Kong": ["Hong Kong S.A.R."],
+                "UK": ["United Kingdom"],
+                "England": ["United Kingdom"],
+                "Scotland": ["United Kingdom"],
+                "Soviet Union": ["Russia"],
+                "UAE": ["United Arab Emirates"]
+            };
+
+            function mapCountryName(rawName) {
+                if (!rawName) return null;
+
+                const name = String(rawName).trim();
+                const candidates = [name, ...(aliases[name] || [])];
+
+                const exactMatch = candidates.find(candidate =>
+                    mapNames.has(candidate)
+                );
+                if (exactMatch) return exactMatch;
+
+                return [...mapNames].find(
+                    candidate => candidate.toLowerCase() === name.toLowerCase()
+                ) || null;
+            }
+
+            const countries = new Set();
+
+            origins.forEach(row => {
+                const name = mapCountryName(row.origin);
+                if (name) countries.add(name);
+            });
+
+            hubs.forEach(row => {
+                const name = mapCountryName(row.country);
+                if (name) countries.add(name);
+            });
+
+            brands.forEach(brand => {
+            if (
+                brand.status !== "active" ||
+                !brand.hq?.country ||
+                !Number.isFinite(Number(brand.hq.lat)) ||
+                !Number.isFinite(Number(brand.hq.lng))
+            ) {
+                return;
+            }
+
+            const name = mapCountryName(brand.hq.country);
+                if (name) countries.add(name);
+            });
+
+            countryFilter.replaceChildren(
+                new Option("All countries", "All countries")
+            );
+
+            [...countries]
+                .sort((a, b) => a.localeCompare(b))
+                .forEach(country => {
+                countryFilter.add(new Option(country, country));
+            });
+        }
+
+        // Embed all three maps, then connect their shared signal.
+        Promise.all([
+        vegaEmbed(
+            "#GlobalOrigins","Chart/globalOriginsofWatchManufacturers.json"
+        ),
+        vegaEmbed(
+            "#GlobalSpread","Chart/globalSpreadofWatchMaking.json"
+        ),
+        vegaEmbed(
+            "#CurrentWatchBrands","Chart/currentWatchBrandsWorldwide.json"
+        )
+        ])
+        .then(results => {
+            const views = results.map(result => result.view);
+
+        function updateMaps() {
+            const selectedCountry = countryFilter.value;
+
+            views.forEach(view => {
+                view.signal("selectedCountry", selectedCountry).run();
+            });
+        }
+
+        countryFilter.addEventListener("change", updateMaps);
+        updateMaps();
+        })
+        .catch(error => {
+            console.error("Failed to load Global Watchmaking maps:", error);
+        });
+
+        // Populate the options dynamically from the map and datasets.
+        populateCountryFilter().catch(error => {
+            console.error("Failed to populate country filter:", error);
+        });
+
         </script>
     </body>
 

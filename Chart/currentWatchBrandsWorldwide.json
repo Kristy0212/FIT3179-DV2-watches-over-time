@@ -1,0 +1,113 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "Current Watch Brands Worldwide",
+    "subtitle": "Where are current watch brands headquartered around the world?",
+    "font": "serif",
+    "fontSize": 22,
+    "fontWeight": "bold",
+    "subtitleFont": "serif",
+    "subtitleFontWeight": "normal",
+    "anchor": "start",
+    "offset": 10
+  },
+
+  "width": 1100,
+  "height": 450,
+
+  "projection": {
+    "type": "equalEarth"
+  },
+  "params": [
+    {
+      "name": "selectedCountry",
+      "value": "All countries"
+    }
+  ],
+  "layer": [
+
+    {
+      "data": {
+        "url": "data/ne_110m_admin_0_countries.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+
+      "mark": {
+        "type": "geoshape",
+        "fill": "#E8E1D5",
+        "stroke": "white",
+        "strokeWidth": 0.5
+      }
+    },
+
+    {
+      "data": {
+        "url": "data/brands.json"
+      },
+
+      "transform": [
+        {
+          "filter": "datum.status == 'active'"
+        },
+        {
+          "filter": "selectedCountry === 'All countries' || datum.hq.country === selectedCountry || (selectedCountry === 'United States of America' && datum.hq.country === 'USA') || (selectedCountry === 'Hong Kong S.A.R.' && datum.hq.country === 'Hong Kong') || (selectedCountry === 'Czechia' && datum.hq.country === 'Czech Republic')"
+        }
+      ],
+
+      "mark": {
+        "type": "circle",
+        "size": 35,
+        "color": "#75865A",
+        "opacity": 0.7,
+        "stroke": "white",
+        "strokeWidth": 0.5
+      },
+
+      "encoding": {
+
+        "longitude": {
+          "field": "hq.lng",
+          "type": "quantitative"
+        },
+
+        "latitude": {
+          "field": "hq.lat",
+          "type": "quantitative"
+        },
+
+        "tooltip": [
+          {
+            "field": "name",
+            "type": "nominal",
+            "title": "Brand"
+          },
+          {
+            "field": "hq.country",
+            "type": "nominal",
+            "title": "Country"
+          },
+          {
+            "field": "hq.city",
+            "type": "nominal",
+            "title": "City"
+          },
+          {
+            "field": "founded",
+            "type": "quantitative",
+            "title": "Founded"
+          }
+        ]
+      }
+    }
+  ],
+
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

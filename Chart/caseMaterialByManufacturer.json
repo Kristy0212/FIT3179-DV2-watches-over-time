@@ -3,10 +3,10 @@
     "title":{
         "text": "Case Material by Manufacturer",
         "subtitle": "What materials are most commonly used across watch brands?",
-        "font": "sans-serif",
+        "font": "serif",
         "fontSize": 22,
         "fontWeight": "bold",
-        "subtitleFont": "sans-serif",
+        "subtitleFont": "serif",
         "subtitleFontWeight": "normal",
         "anchor":"start",
         "offset": 10
@@ -15,7 +15,17 @@
     "height": 450,
     "data":{
         "url": "data/manufacturerCaseMaterial.json"
-    },
+    }, 
+    "params": [
+    {
+        "name": "materialHighlight",
+        "select": {
+            "type": "point",
+            "fields": ["materialGroup"]
+        },
+        "bind": "legend"
+    }
+],
     "mark": {
         "type": "bar"
     },
@@ -56,10 +66,17 @@
                     "#C8A15A",
                     "#7D8C8D",
                     "#6B6E73",
-                    "#B7A6A1",
+                    "#A18D88",
                     "#D8CFC3"
                 ]
             }
+        },
+        "opacity": {
+            "condition": {
+                "param": "materialHighlight",
+                "value": 1
+            },
+            "value": 0.18
         },      
         "tooltip":[
             {

@@ -1,63 +1,334 @@
+
 {
-  "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-    "title":{
-        "text": "Watch Size Distribution",
-        "subtitle": "How has watch size vary across production years?",
-        "font": "sans-serif",
-        "fontSize": 22,
-        "fontWeight": "bold",
-        "subtitleFont": "sans-serif",
-        "subtitleFontWeight": "normal",
-        "anchor":"start",
-        "offset": 10
-    },
-    "width": 450,
-    "height": 300,
-    "data":{
-        "url": "data/watchSizeDistribution.json"
-    },
-    "mark":{
-        "type":"boxplot",
-        "extent": "min-max",
-        "size": 50,
-        "color": "#704735"
-    },
-    "encoding":{
-        "x": {
-            "field": "productionPeriod",
-            "type": "ordinal",
-            "title": "Production Period",
-            "sort": [
-                "Before 1950",
-                "1950-1969",
-                "1970-1989",
-                "1990-2009",
-                "2010+"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "Watch Size Distribution",
+    "subtitle": "How are watch sizes distributed across production periods?",
+    "font": "serif",
+    "fontSize": 22,
+    "fontWeight": "bold",
+    "subtitleFont": "serif",
+    "subtitleFontWeight": "normal",
+    "anchor": "start",
+    "offset": 10
+  },
+
+  "data": {
+    "url": "data/watchSizeDistribution.json"
+  },
+
+  "facet": {
+    "column": {
+      "field": "productionPeriod",
+      "type": "ordinal",
+      "sort": [
+        "Before 1950",
+        "1950-1969",
+        "1970-1989",
+        "1990-2009",
+        "2010+"
+      ],
+      "header": {
+        "title": null,
+        "labelFont": "sans-serif",
+        "labelFontSize": 12,
+        "labelFontWeight": "normal",
+        "labelAngle": 0,
+        "labelPadding": 8
+      }
+    }
+  },
+
+  "spec": {
+    "width": 90,
+    "height": 330,
+
+    "layer": [
+      {
+        "transform": [
+          {
+            "density": "size_mm",
+            "groupby": ["productionPeriod"],
+            "extent": [15, 60],
+            "steps": 80,
+            "bandwidth": 2
+          },
+          {
+            "joinaggregate": [
+              {
+                "op": "max",
+                "field": "density",
+                "as": "maxDensity"
+              }
             ],
-            "axis": {
-                "labelAngle": 0
-            }
+            "groupby": ["productionPeriod"]
+          },
+          {
+            "calculate": "datum.density / datum.maxDensity",
+            "as": "normalizedDensity"
+          },
+          {
+            "calculate": "-datum.normalizedDensity",
+            "as": "leftDensity"
+          }
+        ],
+
+        "mark": {
+          "type": "area",
+          "orient": "horizontal",
+          "color": "#8A7187",
+          "opacity": 0.9,
+          "interpolate": "monotone"
         },
-        "y":{
-            "field": "size_mm",
+
+        "encoding": {
+          "x": {
+            "field": "leftDensity",
+            "type": "quantitative",
+            "scale": {
+              "domain": [-1, 1]
+            },
+            "axis": null
+          },
+
+          "x2": {
+            "field": "normalizedDensity"
+          },
+
+          "y": {
+            "field": "value",
             "type": "quantitative",
             "title": "Watch Size (mm)",
             "scale": {
-                "domain": [15,60]
+              "domain": [15, 60]
+            },
+            "axis": {
+              "title": "Watch Size (mm)",
+              "titleFont": "sans-serif",
+              "titleFontSize": 12,
+              "labelFont": "sans-serif",
+              "labelFontSize": 10,
+              "grid": true,
+              "gridColor": "#D9D9D9",
+              "gridOpacity": 0.8,
+              "values": [
+                15, 20, 25, 30, 35,
+                40, 45, 50, 55, 60
+              ]
             }
-        },
-        "tooltip":[
+          },
+
+          "tooltip": [
             {
-                "field":"productionPeriod",
-                "type": "nominal",
-                "title": "ProductionPeriod"
+              "field": "productionPeriod",
+              "type": "nominal",
+              "title": "Production Period"
             },
             {
-                "field": "size_mm",
-                "type": "quantitative",
-                "title": "Size(mm)",
-                "format":".1f"
+              "field": "value",
+              "type": "quantitative",
+              "title": "Watch Size (mm)",
+              "format": ".1f"
+            },
+            {
+              "field": "density",
+              "type": "quantitative",
+              "title": "Density",
+              "format": ".3f"
             }
-        ]
+          ]
+        }
+      },
+
+      {
+        "transform": [
+          {
+            "aggregate": [
+              {
+                "op": "median",
+                "field": "size_mm",
+                "as": "medianSize"
+              }
+            ],
+            "groupby": ["productionPeriod"]
+          },
+          {
+            "calculate": "datum.medianSize",
+            "as": "value"
+          },
+          {
+            "calculate": "'Median watch size'",
+            "as": "legendLabel"
+          }
+        ],
+
+        "mark": {
+          "type": "point",
+          "filled": true,
+          "size": 75
+        },
+
+        "encoding": {
+          "x": {
+            "datum": 0,
+            "type": "quantitative",
+            "scale": {
+              "domain": [-1, 1]
+            },
+            "axis": null
+          },
+
+          "y": {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Watch Size (mm)",
+            "scale": {
+              "domain": [15, 60]
+            },
+            "axis": {
+              "title": "Watch Size (mm)",
+              "titleFont": "sans-serif",
+              "titleFontSize": 12,
+              "labelFont": "sans-serif",
+              "labelFontSize": 10,
+              "grid": true,
+              "gridColor": "#D9D9D9",
+              "gridOpacity": 0.8,
+              "values": [
+                15, 20, 25, 30, 35,
+                40, 45, 50, 55, 60
+              ]
+            }
+          },
+
+          "color": {
+            "field": "legendLabel",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Median watch size"],
+              "range": ["#3B253D"]
+            },
+            "legend": {
+              "orient": "right",
+              "symbolType": "circle",
+              "labelFont": "sans-serif",
+              "labelFontSize": 11,
+              "titleFont": "sans-serif",
+              "titleFontSize": 11
+            }
+          },
+
+          "tooltip": [
+            {
+              "field": "productionPeriod",
+              "type": "nominal",
+              "title": "Production Period"
+            },
+            {
+              "field": "medianSize",
+              "type": "quantitative",
+              "title": "Median Watch Size (mm)",
+              "format": ".2f"
+            }
+          ]
+        }
+      },
+
+      {
+        "transform": [
+          {
+            "aggregate": [
+              {
+                "op": "median",
+                "field": "size_mm",
+                "as": "medianSize"
+              }
+            ],
+            "groupby": ["productionPeriod"]
+          },
+          {
+            "calculate": "datum.medianSize",
+            "as": "value"
+          },
+          {
+            "calculate": "format(datum.medianSize, '.0f') + ' mm'",
+            "as": "medianLabel"
+          }
+        ],
+
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "middle",
+          "dx": 7,
+          "font": "sans-serif",
+          "fontSize": 10,
+          "fontWeight": "bold",
+          "color": "#3B2922",
+          "clip": false
+        },
+
+        "encoding": {
+          "x": {
+            "datum": 0,
+            "type": "quantitative",
+            "scale": {
+              "domain": [-1, 1]
+            },
+            "axis": null
+          },
+
+          "y": {
+            "field": "value",
+            "type": "quantitative",
+            "title": "Watch Size (mm)",
+            "scale": {
+              "domain": [15, 60]
+            },
+            "axis": {
+              "title": "Watch Size (mm)",
+              "titleFont": "sans-serif",
+              "titleFontSize": 12,
+              "labelFont": "sans-serif",
+              "labelFontSize": 10,
+              "grid": true,
+              "gridColor": "#D9D9D9",
+              "gridOpacity": 0.8,
+              "values": [
+                15, 20, 25, 30, 35,
+                40, 45, 50, 55, 60
+              ]
+            }
+          },
+
+          "text": {
+            "field": "medianLabel",
+            "type": "nominal"
+          }
+        }
+      }
+    ],
+
+    "resolve": {
+      "scale": {
+        "x": "shared",
+        "y": "shared"
+      },
+      "axis": {
+        "x": "shared",
+        "y": "shared"
+      }
     }
+  },
+
+  "config": {
+    "view": {
+      "stroke": "#dddddd"
+    },
+
+    "facet": {
+      "spacing": 12
+    }
+  }
 }

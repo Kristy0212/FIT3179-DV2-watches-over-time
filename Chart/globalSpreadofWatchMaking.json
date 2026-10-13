@@ -2,11 +2,11 @@
     "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
     "title":{
         "text": "Historical Watchmaking Hubs",
-        "subtitle": "Number of watch brands and the earliest recorded brand by country",
-        "font": "sans-serif",
+        "subtitle": "Compare brand counts and the earliest recorded brand year by country",
+        "font": "serif",
         "fontSize": 22,
         "fontWeight": "bold",
-        "subtitleFont": "sans-serif",
+        "subtitleFont": "serif",
         "subtitleFontWeight": "normal",
         "anchor":"start",
         "offset": 10
@@ -16,6 +16,12 @@
     "projection": {
         "type": "equalEarth"
     },
+    "params": [
+    {
+        "name": "selectedCountry",
+        "value": "All countries"
+    }
+    ],
     "layer":[
         {
             "data":{
@@ -98,7 +104,7 @@
                     }
                 },
                 {
-                    "filter": "isValid(datum.order)"
+                    "filter": "isValid(datum.order) && (selectedCountry === 'All countries' || datum.properties.NAME === selectedCountry)"
                 },
                 {
                     "calculate": "geoCentroid(null,datum)[0]",
@@ -131,14 +137,20 @@
                     "scale": {
                         "range": [30, 900]
                     }
-                },
-
+                },  
                 "color": {
                     "field": "earliestYear",
                     "type": "quantitative",
                     "title": "Earliest recorded year",
                     "scale": {
-                        "scheme": "brownbluegreen"
+                        "domain": [1700, 2000],
+                        "range": [
+                            "#DCEFEA",
+                            "#A8D5CC",
+                            "#5AA89B",
+                            "#23695F"
+                        ],
+                        "clamp": true
                     }
                 },
                 "tooltip":[
@@ -161,6 +173,11 @@
                         "field": "order",
                         "type": "quantitative",
                         "title": "Emergence order"
+                    },
+                    {
+                        "field": "brandCount",
+                        "type": "quantitative",
+                        "title": "Number of brands"
                     }
                 ]
             }
