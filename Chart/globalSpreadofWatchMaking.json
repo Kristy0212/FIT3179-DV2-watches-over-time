@@ -11,17 +11,41 @@
         "anchor":"start",
         "offset": 10
     },
-    "width": 1100,
-    "height": 450,
+    "width": "container",
+  "height": 500,
+
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
     "projection": {
-        "type": "equalEarth"
+    "type": "equalEarth",
+    "scale": {
+      "expr": "zoomScale"
     },
-    "params": [
-    {
-        "name": "selectedCountry",
-        "value": "All countries"
+    "center":{
+      "expr": "focusCenter"
+    },
+    "translate": {
+        "expr": "[width / 2, height / 2]"
     }
-    ],
+  },
+
+  "params": [
+    {
+      "name": "selectedCountry",
+      "value": "All countries"
+    },
+    {
+      "name": "zoomScale",
+      "value": 185
+    },
+    {
+      "name": "focusCenter",
+      "value": [0,0]
+    }
+  ],
     "layer":[
         {
             "data":{
@@ -134,6 +158,12 @@
                     "field": "brandCount",
                     "type": "quantitative",
                     "title": "Number of brands",
+                    "legend": {
+                        "orient": "right",
+                        "titleOrient": "top",
+                        "titleAlign": "right",
+                        "titleAnchor": "end"
+                    },
                     "scale": {
                         "range": [30, 900]
                     }
@@ -142,6 +172,12 @@
                     "field": "earliestYear",
                     "type": "quantitative",
                     "title": "Earliest recorded year",
+                    "legend": {
+                        "orient": "right",
+                        "titleOrient": "top",
+                        "titleAlign": "right",
+                        "titleAnchor": "end"
+                    },
                     "scale": {
                         "domain": [1700, 2000],
                         "range": [

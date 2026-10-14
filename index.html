@@ -237,56 +237,90 @@
                 }
             }
             
-            .global-maps-column {
-                gap: 24px;
-            }
+            .global-maps-column .chart-insight-card,
+.global-maps-column .origin-insight {
+    margin-bottom: 24px;
+}
             
-            .global-origin-card {
-                position: relative;
-                width: 100%;
-                min-width: 0;
-                box-sizing: border-box;
-                background: white;
-                padding: 12px 16px 12px 8px;
-            }
+            
+.global-origin-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    background: white;
+    padding: 12px 16px 20px;
+}
 
-            .global-origin-card #GlobalOrigins {
-                width: 100%;
-                min-width: 0;
-            }
+/* Make all three maps use the full available width */
+.global-origin-card #GlobalOrigins,
+.global-origin-card #GlobalSpread,
+.global-origin-card #CurrentWatchBrands {
+    width: 100%;
+    min-width: 0;
+}
 
-            .global-origin-card .origin-insight {
+/* Put each insight card below and centred under its map */
+.global-origin-card .origin-insight {
+    position: static;
+    width: min(85%, 900px);
+    margin: 18px auto 0;
+    padding: 16px 24px;
+    background: #EDEAE3;
+    border: 2px solid #BFA58D;
+    border-radius: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.origin-insight p {
+    margin: 0;
+    color: #3B2922;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 900px) {
+    .global-origin-card .origin-insight {
+        width: 100%;
+        margin: 14px 0 0;
+    }
+}
+
+
+            .map-zoom-controls {
                 position: absolute;
-                right: 28px;
-                bottom: 30px;
-                width: 320px;
-                padding: 16px 18px;
-                background: #EDEAE3;
-                border: 2px solid #BFA58D;
-                border-radius: 10px;
-                box-sizing: border-box;
-                z-index: 10;
+                left: 18px;
+                top: 70px;
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                z-index: 20;
             }
 
-            .origin-insight p {
-                margin: 0;
-                color: #3B2922;
+            .map-zoom-controls button {
+                width: 36px;
+                height: 36px;
+                border: 1px solid #BFA58D;
+                border-radius: 6px;
+                background: #FFFDF9;
+                color: #634032;
                 font-family: Arial, sans-serif;
-                font-size: 14px;
-                line-height: 1.5;
+                font-size: 23px;
+                line-height: 1;
+                cursor: pointer;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
             }
 
-            @media (max-width: 900px) {
-                .global-origin-card {
-                    min-height: 0;
-                }
-
-                .global-origin-card .origin-insight {
-                    position: static;
-                    width: auto;
-                    margin: 0 16px 16px;
-                }
+            .map-zoom-controls button:hover {
+                background: #EADCC8;
             }
+
             .case-material-section{
                 margin-bottom: 30px
             }
@@ -364,44 +398,78 @@
              </div>
         </div>
 
-        <div class="chart-column global-maps-column">
+        <div class="chart-column" style="gap: 24px;">
+            <div class="chart-column">
              <!-- Map 1: Global Origins -->
             <div class="chart-card global-origin-card">
                 <div id="GlobalOrigins"></div>
-                    <!-- Insight card positioned at the bottom-right -->
-                    <div class="global-map-annotation origin-insight">
-                        <p>
-                            Switzerland accounts for 123 of the 449 recorded
-                            brands with historical origins (27.39%), followed
-                            by the United States with 60 brands (13.36%).
-                        </p>
-                    </div>
+                <!-- Map 1 zoom controls -->
+                <div class="map-zoom-controls">
+                    <button id="originZoomIn" type="button"
+                        aria-label="Zoom in" title="Zoom in">+</button>
+                    <button id="originZoomOut" type="button"
+                        aria-label="Zoom out" title="Zoom out">−</button>
+                    <button id="originZoomReset" type="button"
+                        aria-label="Reset zoom" title="Reset zoom">↺</button>
+                </div>
             </div>
+            <!-- Insight card positioned at the bottom-right -->
+            <div class="chart-insight-card">
+                <p>
+                    Switzerland accounts for 123 of the 449 recorded brands with <br class="insight-line-break">
+                    historical origins (27.39%), followed by the United States with <br class="insight-line-break">
+                    60 brands (13.36%). 
+                </p>
+            </div>
+        </div>
+        <div class="chart-column">
             <!-- Map 2: Historical Watchmaking Hubs -->
             <div class="chart-card global-origin-card">
                 <div id="GlobalSpread"></div>
-                    <!-- Insight card positioned at the bottom-right -->
-                    <div class="global-map-annotation origin-insight">
-                        <p>
-                            Switzerland accounts for 123 of the 449 recorded
-                            brands with historical origins (27.39%), followed
-                            by the United States with 60 brands (13.36%).
-                        </p>
-                    </div>
+            <div class="map-zoom-controls">
+                <button id="spreadZoomIn" type="button"
+                    aria-label="Zoom in" title="Zoom in">+</button>
+                <button id="spreadZoomOut" type="button"
+                    aria-label="Zoom out" title="Zoom out">−</button>
+                <button id="spreadZoomReset" type="button"
+                    aria-label="Reset zoom" title="Reset zoom">↺</button>
             </div>
+        </div>
+        <!-- Insight card positioned at the bottom-right -->
+            <div class="chart-insight-card">
+                <p>
+                    Historical watchmaking hubs are concentrated across Europe, with additional hubs <br class="insight-line-break">
+                    in North America and Asia. Circle size represents the number<br class="insight-line-break">
+                    of recorded brands, while colour indicates the earliest recorded<br class="insight-line-break">
+                     brand year. 
+                </p>
+            </div>  
+        </div>
+        <div class="chart-column">
             <!-- Map 3: Current Watch Brands Worldwide -->
             <div class="chart-card global-origin-card">
                 <div id="CurrentWatchBrands"></div>
-                    <!-- Insight card positioned at the bottom-right -->
-                    <div class="global-map-annotation origin-insight">
-                        <p>
-                            Switzerland accounts for 123 of the 449 recorded
-                            brands with historical origins (27.39%), followed
-                            by the United States with 60 brands (13.36%).
-                        </p>
-                    </div>
+                <div class="map-zoom-controls">
+                    <button id="currentZoomIn" type="button"
+                        aria-label="Zoom in" title="Zoom in">+</button>
+                    <button id="currentZoomOut" type="button"
+                        aria-label="Zoom out" title="Zoom out">−</button>
+                    <button id="currentZoomReset" type="button"
+                        aria-label="Reset zoom" title="Reset zoom">↺</button>
+                </div>
             </div>
+            <!-- Insight card positioned at the bottom-right -->
+            <div class="chart-insight-card">
+                <p>
+                    Current watch brand headquarters are heavily clustered in Europe, with<br class="insight-line-break">
+                    additional brands across North America and East Asia. Each dot<br class="insight-line-break">
+                    represents an active watch brand's headquarters, revealing the global distribution<br class="insight-line-break">
+                    of today's watch industry.
+                </p>
+            </div> 
         </div>
+        </div>
+        
 
 
 
@@ -480,10 +548,7 @@
             // Section 1: Watches History
             vegaEmbed('#ProductionTimeline', 'Chart/productionTimeline.json');
             vegaEmbed('#ManufacturerEvolution', 'Chart/manufacturerEvolution.json');
-            // Section 2: Global WatchMakings
-            vegaEmbed('#GlobalOrigins', 'Chart/globalOriginsofWatchManufacturers.json');
-            vegaEmbed('#GlobalSpread', 'Chart/globalSpreadofWatchMaking.json');
-            vegaEmbed('#CurrentWatchBrands','Chart/currentWatchBrandsWorldwide.json');
+
             // Section 3: Watch Characteristics
             vegaEmbed('#WatchProductionAcrossPeriod', 'Chart/manufacturerProductionPeriod.json');
             vegaEmbed('#WatchSizeDistribution', 'Chart/watchSizeDistribution.json');
@@ -494,7 +559,8 @@
             vegaEmbed('#BraceletMaterial', 'Chart/manufacturerBraceletMaterial.json');
             
             const countryFilter = document.getElementById("countryFilter");
-
+            let countryTopology = null;
+            
             // Resolve dataset country names to the names used by the world map.
             async function populateCountryFilter() {
             const files = [
@@ -513,6 +579,7 @@
                     return response.json();
                 })
             );
+            countryTopology = topo;
 
             const geometries = topo.objects.ne_110m_admin_0_countries.geometries;
 
@@ -601,14 +668,162 @@
         ])
         .then(results => {
             const views = results.map(result => result.view);
+        
+            
+const globalOriginsView = views[0];
 
-        function updateMaps() {
-            const selectedCountry = countryFilter.value;
+// Reusable zoom controls for all three maps.
+function setupMapZoom(view, prefix) {
+    const baseScale = view.signal("zoomScale");
+    let currentScale = baseScale;
 
-            views.forEach(view => {
-                view.signal("selectedCountry", selectedCountry).run();
-            });
+    function applyZoom(newScale) {
+        currentScale = Math.max(
+            baseScale * 0.75,
+            Math.min(baseScale * 5, newScale)
+        );
+
+        view.signal("zoomScale", currentScale).runAsync();
+    }
+
+    document.getElementById(`${prefix}ZoomIn`)
+        .addEventListener("click", () => {
+            applyZoom(currentScale * 1.2);
+        });
+
+    document.getElementById(`${prefix}ZoomOut`)
+        .addEventListener("click", () => {
+            applyZoom(currentScale / 1.2);
+        });
+
+    document.getElementById(`${prefix}ZoomReset`)
+        .addEventListener("click", () => {
+            applyZoom(baseScale);
+        });
+
+    return {
+        reset: () => applyZoom(baseScale),
+        setScale: (scale) => applyZoom(scale)
+    };
+}
+
+// Connect each map to its own zoom buttons.
+const originZoom = setupMapZoom(views[0], "origin");
+const spreadZoom = setupMapZoom(views[1], "spread");
+const currentZoom = setupMapZoom(views[2], "current");
+       
+function getCountryCenterFromTopology(countryName) {
+    if (!countryTopology) return null;
+
+    const countriesObject =
+        countryTopology.objects?.ne_110m_admin_0_countries;
+
+    const country = countriesObject?.geometries?.find(
+        geometry => geometry.properties?.NAME === countryName
+    );
+
+    if (!country || !country.arcs) return null;
+
+    const arcIndexes = [];
+
+    function collectArcIndexes(value) {
+        if (typeof value === "number") {
+            arcIndexes.push(value);
+        } else if (Array.isArray(value)) {
+            value.forEach(collectArcIndexes);
         }
+    }
+
+    collectArcIndexes(country.arcs);
+
+    const points = [];
+
+    arcIndexes.forEach(signedIndex => {
+        const reversed = signedIndex < 0;
+        const arcIndex = reversed ? ~signedIndex : signedIndex;
+        const arc = countryTopology.arcs?.[arcIndex];
+
+        if (!arc) return;
+
+        let x = 0;
+        let y = 0;
+
+        const decodedPoints = arc.map(position => {
+            if (countryTopology.transform) {
+                x += position[0];
+                y += position[1];
+
+                const scale = countryTopology.transform.scale;
+                const translate = countryTopology.transform.translate;
+
+                return [
+                    x * scale[0] + translate[0],
+                    y * scale[1] + translate[1]
+                ];
+            }
+
+            return [position[0], position[1]];
+        });
+
+        if (reversed) decodedPoints.reverse();
+
+        points.push(...decodedPoints);
+    });
+
+    if (points.length === 0) return null;
+
+    const longitudes = points.map(point => point[0]);
+    const latitudes = points.map(point => point[1]);
+
+    return [
+        (Math.min(...longitudes) + Math.max(...longitudes)) / 2,
+        (Math.min(...latitudes) + Math.max(...latitudes)) / 2
+    ];
+}
+     
+
+
+function updateMaps() {
+    const selectedCountry = countryFilter.value;
+
+    // Apply the country filter to all three maps.
+    views.forEach(view => {
+        view.signal("selectedCountry", selectedCountry).run();
+    });
+
+    // Restore the full world view on all three maps.
+    if (selectedCountry === "All countries") {
+        views.forEach(view => {
+            view.signal("focusCenter", [0, 0]);
+        });
+
+        originZoom.reset();
+        spreadZoom.reset();
+        currentZoom.reset();
+        return;
+    }
+
+    // Find the selected country's approximate centre.
+    const center = getCountryCenterFromTopology(selectedCountry);
+
+    if (!center) {
+        console.warn("Could not find country centre:", selectedCountry);
+        return;
+    }
+
+    // Centre and zoom all three maps on the selected country.
+    views.forEach(view => {
+        view.signal("focusCenter", center);
+    });
+
+    originZoom.setScale(520);
+    spreadZoom.setScale(520);
+    currentZoom.setScale(520);
+}
+
+
+
+
 
         countryFilter.addEventListener("change", updateMaps);
         updateMaps();

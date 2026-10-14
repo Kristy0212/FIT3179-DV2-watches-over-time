@@ -26,14 +26,29 @@
 
   "projection": {
     "type": "equalEarth",
-    "scale": 185,
-    "translate": [500, 255]
+    "scale": {
+      "expr": "zoomScale"
+    },
+    "center":{
+      "expr": "focusCenter"
+    },
+    "translate": {
+      "expr": "[width / 2, height / 2]"
+    }
   },
 
   "params": [
     {
       "name": "selectedCountry",
       "value": "All countries"
+    },
+    {
+      "name": "zoomScale",
+      "value": 185
+    },
+    {
+      "name": "focusCenter",
+      "value": [0,0]
     }
   ],
 

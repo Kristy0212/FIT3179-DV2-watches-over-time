@@ -13,16 +13,40 @@
     "offset": 10
   },
 
-  "width": 1100,
-  "height": 450,
+  "width": "container",
+  "height": 500,
 
-  "projection": {
-    "type": "equalEarth"
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
   },
+
+    "projection": {
+    "type": "equalEarth",
+    "scale": {
+      "expr": "zoomScale"
+    },
+    "center":{
+      "expr": "focusCenter"
+    },
+    "translate": {
+        "expr": "[width / 2, height / 2]"
+    }
+  },
+
   "params": [
     {
       "name": "selectedCountry",
       "value": "All countries"
+    },
+    {
+      "name": "zoomScale",
+      "value": 185
+    },
+    {
+      "name": "focusCenter",
+      "value": [0,0]
     }
   ],
   "layer": [
