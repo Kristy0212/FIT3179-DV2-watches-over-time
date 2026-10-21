@@ -1,20 +1,20 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
   "title": {
     "text": "Bracelet & Strap Material Evolution",
     "subtitle": "How have the leading materials changed in rank over time?",
-    "anchor": "start",
-    "fontSize": 20,
-    "subtitleFontSize": 14
+    "font": "serif",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "subtitleFont": "serif",
+        "subtitleFontWeight": "normal",
+        "anchor":"start",
+        "offset": 10
   },
-
   "data": {
     "url": "data/braceletMaterialEvolution.json"
   },
-
   "transform": [
-
     {
       "joinaggregate": [
         {
@@ -25,7 +25,6 @@
       ],
       "groupby": ["materialGroup"]
     },
-
     {
       "window": [
         {
@@ -40,11 +39,9 @@
         }
       ]
     },
-
     {
       "filter": "datum.overallRank <= 3"
     },
-
     {
       "window": [
         {
@@ -60,14 +57,10 @@
         }
       ]
     }
-
   ],
-
-  "width": 450,
+  "width": 1150,
   "height": 300,
-
   "encoding": {
-
     "x": {
       "field": "productionPeriod",
       "type": "ordinal",
@@ -85,7 +78,6 @@
         "titleFontSize": 14
       }
     },
-
     "y": {
       "field": "selectedRank",
       "type": "quantitative",
@@ -100,40 +92,44 @@
         "titleFontSize": 14
       }
     },
-
     "color": {
       "field": "materialGroup",
       "type": "nominal",
       "title": "Material",
+      "scale": {
+        "domain": [
+          "Steel",
+          "Gold / Gold combination",
+          "Leather / Animal skin"
+        ],
+        "range": [
+          "#8B694B",
+          "#C9A45D",
+          "#E9A052"
+        ]
+      },
       "legend": {
         "orient": "right"
       }
     },
-
     "detail": {
       "field": "materialGroup"
     }
-
   },
-
   "layer": [
-
     {
       "mark": {
         "type": "line",
         "strokeWidth": 3
       }
     },
-
     {
       "mark": {
         "type": "point",
         "filled": true,
         "size": 100
       },
-
       "encoding": {
-
         "tooltip": [
           {
             "field": "productionPeriod",
@@ -158,24 +154,19 @@
             "format": ","
           }
         ]
-
       }
     }
-
   ],
-
   "config": {
     "axis": {
       "grid": true,
       "domainColor": "#999999",
       "tickColor": "#999999"
     },
-
     "legend": {
       "titleFontSize": 13,
       "labelFontSize": 12
     },
-
     "view": {
       "stroke": null
     }

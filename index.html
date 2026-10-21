@@ -157,34 +157,45 @@
                 min-width: 0;
             }
 
+            
             .chart-insight-card {
                 display: flex;
                 align-items: center;
-                justify-content: center;
+                gap: 20px;
                 width: 100%;
-                height: 100px;
+                min-height: 100px;
+                padding: 20px 24px;
                 background: #EDEAE3;
                 border: 2px solid #BFA58D;
                 border-radius: 10px;
-                padding: 16px 24px;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
                 box-sizing: border-box;
-                text-align: center;
             }
+
+            .insight-title {
+                flex: 0 0 150px;
+                font-family: Arial, sans-serif;
+                font-size: 17px;
+                font-weight: bold;
+                color: #000000;
+            }
+
+            .insight-divider {
+                align-self: stretch;
+                width: 2px;
+                background: #BFA58D;
+                flex-shrink: 0;
+            }
+
             .chart-insight-card p {
-                margin: 0 auto;
-                max-width: 700px;
+                flex: 1;
+                margin: 0;
                 color: #3B2922;
                 font-family: Arial, sans-serif;
                 font-size: 16px;
-                line-height: 1.5;
-                text-align: center;
+                line-height: 1.6;
+                text-align: left;
                 overflow-wrap: break-word;
-            }
-            @media (max-width: 768){
-                .insight-line-break {
-                    display:none;
-                }
             }
 
             /* Global Watchmaking header with filter */
@@ -238,22 +249,22 @@
             }
             
             .global-maps-column .chart-insight-card,
-.global-maps-column .origin-insight {
-    margin-bottom: 24px;
-}
+                .global-maps-column .origin-insight {
+                    margin-bottom: 24px;
+            }
             
             
-.global-origin-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-    background: white;
-    padding: 12px 16px 20px;
-}
+            .global-origin-card {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                min-width: 0;
+                box-sizing: border-box;
+                background: white;
+                padding: 12px 16px 20px;
+            }
 
 /* Make all three maps use the full available width */
 .global-origin-card #GlobalOrigins,
@@ -324,6 +335,230 @@
             .case-material-section{
                 margin-bottom: 30px
             }
+
+            
+
+.material-insights-box {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px 0 30px;
+    padding: 24px;
+    background: #EDEAE3;
+    border: 2px solid #BFA58D;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.material-insight {
+    min-width: 0;
+    padding: 0 24px;
+}
+
+.material-insight:first-child {
+    padding-left: 0;
+}
+
+.material-insight:last-child {
+    padding-right: 0;
+}
+
+.material-insight + .material-insight {
+    border-left: 2px solid #BFA58D;
+}
+
+.material-insights-box .insight-title {
+    margin: 0 0 14px;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.material-insight p {
+    margin: 0;
+    color: #3B2922;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.steel-title,
+.steel-highlight {
+    color: #8F7159;
+}
+
+.leather-title,
+.leather-highlight {
+    color: #E99A49;
+}
+
+.gold-title,
+.gold-highlight {
+    color: #BD984E;
+}
+
+.material-insight strong {
+    font-weight: 700;
+}
+
+@media (max-width: 900px) {
+    .material-insights-box {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .material-insight,
+    .material-insight:first-child,
+    .material-insight:last-child {
+        padding: 0;
+    }
+
+    .material-insight + .material-insight {
+        border-left: none;
+        border-top: 2px solid #BFA58D;
+        padding-top: 20px;
+    }
+}
+.material-insight::before {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 3px;
+    margin-bottom: 16px;
+    border-radius: 2px;
+}
+
+.material-insight:nth-child(1)::before {
+    background-color: #8F7159;
+}
+
+.material-insight:nth-child(2)::before {
+    background-color: #D98532;
+}
+
+.material-insight:nth-child(3)::before {
+    background-color: #B28C3E;
+}
+
+
+/* Two cards side by side */
+.material-info-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start !important;
+    gap: 20px;
+    width: 100%;
+    margin: 20px 0 30px;
+}
+
+/* Card dimensions: fit content, not parent height */
+.material-info-row > .chart-insight-card {
+    display: grid !important;
+    grid-template-columns: 225px minmax(0, 1fr);
+    grid-template-rows: auto;
+    align-items: center;
+    align-content: start;
+
+    height: fit-content !important;
+    min-height: 0 !important;
+    max-height: none;
+    flex: none !important;
+
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 24px;
+
+    background: #EDEAE3;
+    border: 2px solid #BFA58D;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Heading vertically centred beside the content */
+.material-info-row > .chart-insight-card > .insight-title {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    position: relative;
+    margin: 0;
+    padding-right: 20px;
+    border: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* Vertical separator */
+.material-info-row > .chart-insight-card > .insight-title::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -24px;
+    bottom: -24px;
+    width: 2px;
+    background: #BFA58D;
+}
+
+/* Remove horizontal divider */
+.material-info-row > .chart-insight-card > .insight-divider {
+    display: none !important;
+}
+
+/* Content begins at the top, left-aligned */
+.material-info-row > .chart-insight-card > p {
+    grid-column: 2;
+    align-self: start;
+    justify-self: stretch;
+
+    margin: 0 0 12px !important;
+    padding: 0;
+    height: auto !important;
+
+    color: #3B2922;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.material-info-row > .chart-insight-card > p:last-child {
+    margin-bottom: 0 !important;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+    .material-info-row {
+        grid-template-columns: 1fr !important;
+    }
+
+    .material-info-row > .chart-insight-card {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .material-info-row > .chart-insight-card > .insight-title {
+        grid-column: 1;
+        grid-row: auto;
+        align-self: start;
+        padding: 0 0 10px;
+        border-bottom: 2px solid #BFA58D;
+    }
+
+    .material-info-row > .chart-insight-card > .insight-title::after {
+        display: none;
+    }
+
+    .material-info-row > .chart-insight-card > p {
+        grid-column: 1;
+    }
+}
 
         </style>
     </head>
@@ -482,64 +717,197 @@
             <div class="chart-column">
                 <div class="chart-card">
                     <div id="WatchProductionAcrossPeriod"></div>
-                </div>
-            <div class="chart-insight-card">
+                </div>   
+
+        <div class="chart-insight-card">
+            <div class="insight-title" style="color: #354A5E;">
+                Highest Recorded Count
+            </div>
+            <div class="insight-divider"></div>
                 <p>
-                    The number of recorded watches is highest in the 2010+ <br class="insight-line-break">
-                    period, particularly for Rolex, suggesting a greater representation of <br class="insight-line-break">
-                    recent-period watches in this dataset.
+                    Rolex records
+                    <strong style="color: #354A5E;">33,710 watches</strong>
+                    in the 2010+ period, the
+                    <strong style="color: #354A5E;">highest count</strong>
+                    among the manufacturer-period combinations.
+                    The blue outline highlights this concentration
+                    of records in the dataset.
                 </p>
             </div>
         </div>
         <div class="chart-column">
-                <div class="chart-card">
-                    <div id="WatchSizeDistribution"></div>
+            <div class="chart-card">
+                <div id="WatchSizeDistribution"></div>
+            </div>
+            <div class="chart-insight-card">
+                <div class="insight-title" style="color: #806080;">
+                    Increasing Median Watch Size
                 </div>
-                <div class="chart-insight-card">
+                <div class="insight-divider"></div>
                     <p>
-                        Typical watch sizes shift from around 35mm in earlier periods <br class="insight-line-break">
-                        to 40-41mm after 1990. Before 1950, a second peak <br class="insight-line-break">
-                        near 50mm suggest greater variation.<br class="insight-line-break">
+                        Typical watch sizes shift from around
+                        <strong>35 mm</strong> in earlier periods to
+                        <strong style="color: #806080;">40–41 mm after 1990</strong>.
+                        Before 1950, a second concentration near
+                        <strong style="color: #806080;">50 mm</strong>
+                        suggests greater variation in recorded watch sizes.
                     </p>
                 </div>
             </div>
         </div>
-        <div class="chart-row">
-            <div class="chart-column" style="grid-column: 1 / -1;">
-                <div class="chart-card">
-                    <!--Case Material By Manufacturer-->
-                    <div id="CaseMaterial"></div>
+        
+
+<div class="chart-row">
+    <div class="chart-column" style="grid-column: 1 / -1;">
+
+        <div class="chart-card">
+            <!-- Case Material By Manufacturer -->
+            <div id="CaseMaterial"></div>
+        </div>
+
+        <!-- Two insight cards side by side -->
+        <div class="material-info-row">
+            <!-- Card 2: How to Read the Chart -->
+            <div class="chart-insight-card">
+                <div class="insight-title" style="color: #634032;">
+                    How to Read the Chart
                 </div>
-                <div class="chart-insight-card">
-                    <p>
-                        Steel dominates several manufacturers, while gold combination and other materials<br class="insight-line-break">
-                        contribute different shares across brands.
-                    </p>
-                </div>    
+
+                <div class="insight-divider"></div>
+
+                <p>
+                    <strong>1. Identify the material</strong>
+                    using the chart legend and its corresponding colour. <br class="insight-line-break">
+                    <strong>2. Compare manufacturers</strong>
+                    by examining the size of each material segment. <br class="insight-line-break">
+                    <strong>3. Explore the details</strong>
+                    by hovering over the chart to view available tooltip information.
+            </div>
+
+            <!-- Card 1: Chart Finding -->
+            <div class="chart-insight-card">
+                <div class="insight-title" style="color: #8B6A4F;">
+                    Distinct Material Preferences
+                </div>
+
+                <div class="insight-divider"></div>
+
+                <p>
+                    <strong style="color: #8B6A4F;">Steel</strong>
+                    dominates several manufacturers, while
+                    <strong style="color: #C9A15A;">gold combinations</strong>
+                    and
+                    <strong style="color: #7F8F90;">titanium</strong>
+                    contribute different shares across brands.
+                    <strong style="color: #6F7276;">Ceramic</strong>
+                    is also prominent in Hublot's material distribution.
+                </p>
             </div>
         </div>
+    </div>
+</div>
+
+
 
         <!-- Section 4: Design and Value -->
         <div class="section-header" id="value">
             <h2>4. Design and Value</h2>
+            <p>How have watch prices changed over time and across manufacturer?</p>
         </div>
         <div class="chart-row">
-            <div class="chart-card">
-                <!--Watch Production Across Period-->
-                <div id="PriceEvolution"></div>
+            <div class="chart-column">
+                <div class="chart-card">
+                    <div id="PriceEvolution"></div>
+                </div>
+            <div class="chart-insight-card">
+                <div class="insight-title" style="color: #A6534D;">
+                    Rising Price Trend
+                </div>
+                <div class="insight-divider"></div>
+                <p>
+                    Watch prices generally rise across production periods, with the  <br class="insight-line-break">
+                    <strong>highest median</strong> and
+                    <strong>widest upper price range</strong> in
+                    <span style="color: #A6534D; font-weight: bold;">2010+</span>.  <br class="insight-line-break">
+                    This suggests that more recent watches in the dataset include  <br class="insight-line-break">
+                    <span style="color: #A6534D; font-weight: bold;">higher-priced luxury models.</span>
+                </p>
             </div>
-            <div class="chart-card">
-                <!--Manufacturer Price Comparison-->
-                <div id="ManufacturerPrice"></div>
             </div>
-        </div>
+            <div class="chart-column">
+                <div class="chart-card">
+                    <div id="ManufacturerPrice"></div>
+                </div>
+                <div class="chart-insight-card">
+                    <div class="insight-title" style="color: #C76D85;">
+                        Luxury Price Gap
+                    </div>
+                        <div class="insight-divider"></div>
+                            <p>
+                                <strong>Patek Philippe</strong> has the highest average watch price,
+                                followed by <strong>Audemars Piguet</strong>.
+                                Their average prices are substantially higher than those of
+                                the other manufacturers, highlighting differences in
+                                <span style="color: #C76D85; font-weight: bold;">
+                                luxury market positioning.
+                                </span>
+                            </p>
+                        </div>
+            </div>
+        </div> 
+
         <div class="chart-row">
             <div class="chart-column" style="grid-column: 1 / -1;">
                 <div class="chart-card">
+                    <!--Case Material By Manufacturer-->
                     <div id="BraceletMaterial"></div>
-                </div>   
+                </div> 
+                
+                
+
+<div class="material-insights-box">
+
+    <div class="material-insight">
+        <h3 class="insight-title steel-title">
+            Steel: Rise to First
+        </h3>
+        <p>
+            Steel rose from <strong>third to first place</strong> by
+            1970–1989 and <strong class="steel-highlight">maintained its lead</strong>
+            afterwards.
+        </p>
+    </div>
+
+    <div class="material-insight">
+        <h3 class="insight-title leather-title">
+            Leather: Declining Rank
+        </h3>
+        <p>
+            Leather fell from <strong>first to third place</strong> after
+            1969, indicating a <strong class="leather-highlight">shift in material ranking</strong>.
+        </p>
+    </div>
+
+    <div class="material-insight">
+        <h3 class="insight-title gold-title">
+            Gold: Stable Second Place
+        </h3>
+        <p>
+            Gold returned to <strong>second place from 1970 onwards</strong>
+            and <strong class="gold-highlight">remained stable</strong>
+            in subsequent periods.
+        </p>
+    </div>
+
+</div>
+
+
+
+    
             </div>
         </div>
+
+
 
         
 

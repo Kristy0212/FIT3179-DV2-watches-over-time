@@ -1,78 +1,171 @@
+
 {
-  "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
-    "title":{
-        "text": "Watch Production Across Periods",
-        "subtitle": "How has watch production varied across different periods?",
-        "font": "serif",
-        "fontSize": 22,
-        "fontWeight": "bold",
-        "subtitleFont": "serif",
-        "subtitleFontWeight": "normal",
-        "anchor":"start",
-        "offset": 10
-    },
-    "width": 450,
-    "height": 300,
-    "data":{
-        "url": "data/manufacturerProductionPeriod.json"
-    },
-    "mark":{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Watch Production Across Periods",
+    "subtitle": "How has watch production varied across different periods?",
+    "font": "serif",
+    "fontSize": 22,
+    "fontWeight": "bold",
+    "subtitleFont": "serif",
+    "subtitleFontWeight": "normal",
+    "anchor": "start",
+    "offset": 10
+  },
+  "width": 440,
+  "height": 300,
+  "data": {
+    "url": "data/manufacturerProductionPeriod.json"
+  },
+  "transform": [
+    {
+      "calculate": "datum.brand === 'Rolex' && datum.productionPeriod === '2010+'",
+      "as": "highlight"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
         "type": "rect"
-    },
-    "encoding":{
-        "x":{
-            "field": "productionPeriod",
-            "type": "ordinal",
-            "sort": {
-                "field": "periodOrder",
-                "order": "ascending"
-            },
-            "title": "Production Period",
-            "axis":{
-                "labelAngle": -45
-            }
+      },
+      "encoding": {
+        "x": {
+          "field": "productionPeriod",
+          "type": "ordinal",
+          "sort": {
+            "field": "periodOrder",
+            "order": "ascending"
+          },
+          "title": "Production Period",
+          "axis": {
+            "labelAngle": -45
+          }
         },
-        "y":{
-            "field": "brand",
-            "type": "nominal",
-            "sort":{
-                "field": "watchCount",
-                "op": "sum",
-                "order": "descending"
-            },
-            "title": "Manufacturer"
+        "y": {
+          "field": "brand",
+          "type": "nominal",
+          "sort": {
+            "field": "watchCount",
+            "op": "sum",
+            "order": "descending"
+          },
+          "title": "Manufacturer"
         },
         "color": {
+          "field": "watchCount",
+          "type": "quantitative",
+          "title": "Number of Watches",
+          "scale": {
+            "range": [
+              "#F0F2F4",
+              "#CDD5DD",
+              "#9BAAB8",
+              "#697F93",
+              "#354A5E"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "brand",
+            "type": "nominal",
+            "title": "Manufacturer"
+          },
+          {
+            "field": "productionPeriod",
+            "type": "ordinal",
+            "title": "Production Period"
+          },
+          {
             "field": "watchCount",
             "type": "quantitative",
             "title": "Number of Watches",
-            "scale": {
-                "range": [
-                    "#F0F2F4",
-                    "#CDD5DD",
-                    "#9BAAB8",
-                    "#697F93",
-                    "#354A5E"
-                ]
-            }
-        },
-        "tooltip":[
-            {
-                "field":"brand",
-                "type": "nominal",
-                "title": "Manufacturer"
-            },
-            {
-                "field": "productionPeriod",
-                "type": "ordinal",
-                "title": "Production Period"
-            },
-            {
-                "field": "watchCount",
-                "type": "quantitative",
-                "title": "Number of Watches",
-                "format":","
-            }
+            "format": ","
+          }
         ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.highlight"
+        }
+      ],
+      "mark": {
+        "type": "rect",
+        "fillOpacity": 0,
+        "stroke": "#A6534D",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "productionPeriod",
+          "type": "ordinal",
+          "sort": {
+            "field": "periodOrder",
+            "order": "ascending"
+          }
+        },
+        "y": {
+          "field": "brand",
+          "type": "nominal",
+          "sort": {
+            "field": "watchCount",
+            "op": "sum",
+            "order": "descending"
+          }
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.highlight"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#FFFFFF",
+        "align": "center",
+        "baseline": "middle"
+      },
+      "encoding": {
+        "x": {
+          "field": "productionPeriod",
+          "type": "ordinal",
+          "sort": {
+            "field": "periodOrder",
+            "order": "ascending"
+          }
+        },
+        "y": {
+          "field": "brand",
+          "type": "nominal",
+          "sort": {
+            "field": "watchCount",
+            "op": "sum",
+            "order": "descending"
+          }
+        },
+        "text": {
+          "field": "watchCount",
+          "type": "quantitative",
+          "format": ","
+        }
+      }
     }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "sans-serif",
+      "titleFont": "sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 13
+    }
+  }
 }

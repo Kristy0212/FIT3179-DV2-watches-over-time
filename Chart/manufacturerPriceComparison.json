@@ -1,108 +1,153 @@
+
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
-    "title": {
-        "text": "Manufacturer Average Price",
-        "subtitle": "How does the average watch price vary across manufacturers?",
-        "font": "sans-serif",
-        "fontSize": 22,
-        "fontWeight": "bold",
-        "subtitleFont": "sans-serif",
-        "subtitleFontWeight": "normal",
-        "anchor": "start",
-        "offset": 10
-    },
-
-    "width": 450,
-    "height": 300,
-
-    "data": {
-        "url": "data/manufacturerPriceComparison.json"
-    },
-
-    "layer": [
-
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Manufacturer Average Price",
+    "subtitle": "How does the average watch price vary across manufacturers?",
+    "font": "serif",
+    "fontSize": 22,
+    "fontWeight": "bold",
+    "subtitleFont": "serif",
+    "subtitleFontWeight": "normal",
+    "anchor": "start",
+    "offset": 10
+  },
+  "width": 450,
+  "height": 307,
+  "data": {
+    "url": "data/manufacturerPriceComparison.json"
+  },
+  "transform": [
+    {
+      "joinaggregate": [
         {
-            "mark": {
-                "type": "rule",
-                "color": "#C8B8A8",
-                "strokeWidth": 2
-            },
-
-            "encoding": {
-                "y": {
-                    "field": "brand",
-                    "type": "nominal",
-                    "sort": {
-                        "field": "averagePrice",
-                        "order": "descending"
-                    },
-                    "title": "Manufacturer"
-                },
-
-                "x": {
-                    "field": "averagePrice",
-                    "type": "quantitative"
-                },
-
-                "x2": {
-                    "value": 0
-                }
-            }
-        },
-
-        {
-            "mark": {
-                "type": "circle",
-                "size": 110,
-                "color": "#C8A15A"
-            },
-
-            "encoding": {
-                "y": {
-                    "field": "brand",
-                    "type": "nominal",
-                    "sort": {
-                        "field": "averagePrice",
-                        "order": "descending"
-                    }
-                },
-
-                "x": {
-                    "field": "averagePrice",
-                    "type": "quantitative",
-                    "title": "Average Watch Price (USD)",
-                    "axis": {
-                        "format": "$,.0f",
-                        "grid": false
-                    }
-                },
-
-                "tooltip": [
-                    {
-                        "field": "brand",
-                        "type": "nominal",
-                        "title": "Manufacturer"
-                    },
-                    {
-                        "field": "averagePrice",
-                        "type": "quantitative",
-                        "title": "Average Price",
-                        "format": "$,.0f"
-                    }
-                ]
-            }
+          "op": "max",
+          "field": "averagePrice",
+          "as": "highestAveragePrice"
         }
-    ],
-
-    "config": {
-        "view": {
-            "stroke": null
-        },
-
-        "axis": {
-            "labelFont": "sans-serif",
-            "titleFont": "sans-serif"
-        }
+      ]
+    },
+    {
+      "calculate": "datum.averagePrice === datum.highestAveragePrice",
+      "as": "isHighest"
     }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "y": {
+          "field": "brand",
+          "type": "nominal",
+          "sort": {
+            "field": "averagePrice",
+            "order": "descending"
+          },
+          "title": "Manufacturer"
+        },
+        "x": {
+          "field": "averagePrice",
+          "type": "quantitative",
+          "scale": {
+            "zero": true
+          },
+          "title": "Average Watch Price (USD)",
+          "axis": {
+            "format": "$,.0f",
+            "grid": false,
+            "tickColor": "#000000",
+            "domainColor": "#000000"
+          }
+        },
+        "x2": {
+          "datum": 0
+        },
+        "color": {
+          "condition": {
+            "test": "datum.isHighest",
+            "value": "#C76D85"
+          },
+          "value": "#A6A09A"
+        },
+        "tooltip": [
+          {
+            "field": "brand",
+            "type": "nominal",
+            "title": "Manufacturer"
+          },
+          {
+            "field": "averagePrice",
+            "type": "quantitative",
+            "title": "Average Price",
+            "format": "$,.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 110,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "brand",
+          "type": "nominal",
+          "sort": {
+            "field": "averagePrice",
+            "order": "descending"
+          },
+          "title": "Manufacturer"
+        },
+        "x": {
+          "field": "averagePrice",
+          "type": "quantitative",
+          "scale": {
+            "zero": true
+          },
+          "title": "Average Watch Price (USD)",
+          "axis": {
+            "format": "$,.0f",
+            "grid": false
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.isHighest",
+            "value": "#A6534D"
+          },
+          "value": "#A6A09A"
+        },
+        "tooltip": [
+          {
+            "field": "brand",
+            "type": "nominal",
+            "title": "Manufacturer"
+          },
+          {
+            "field": "averagePrice",
+            "type": "quantitative",
+            "title": "Average Price",
+            "format": "$,.0f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFont": "sans-serif",
+      "titleFont": "sans-serif",
+      "labelFontSize": 12,
+      "titleFontSize": 13
+    }
+  }
 }

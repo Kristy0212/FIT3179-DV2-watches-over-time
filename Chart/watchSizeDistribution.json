@@ -17,7 +17,7 @@
   "data": {
     "url": "data/watchSizeDistribution.json"
   },
-
+  
   "facet": {
     "column": {
       "field": "productionPeriod",
@@ -42,7 +42,7 @@
 
   "spec": {
     "width": 90,
-    "height": 330,
+    "height": 340,
 
     "layer": [
       {
