@@ -70,7 +70,7 @@
             "test": "datum.isHighest",
             "value": "#C76D85"
           },
-          "value": "#A6A09A"
+          "value": "#B8B1A9"
         },
         "tooltip": [
           {
@@ -121,7 +121,7 @@
             "test": "datum.isHighest",
             "value": "#A6534D"
           },
-          "value": "#A6A09A"
+          "value": "#B8B1A9"
         },
         "tooltip": [
           {
@@ -136,6 +136,94 @@
             "format": "$,.0f"
           }
         ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 8,
+        "font": "sans-serif",
+        "fontSize": 10
+      },
+      "encoding": {
+        "y": {
+          "field": "brand",
+          "type": "nominal",
+          "sort": {
+            "field": "averagePrice",
+            "order": "descending"
+          },
+          "title": "Manufacturer"
+        },
+        "x": {
+          "field": "averagePrice",
+          "type": "quantitative",
+          "scale": {
+            "zero": true
+          }
+        },
+        "text": {
+          "field": "averagePrice",
+          "type": "quantitative",
+          "format": "$,.0f"
+        },
+        "fontWeight": {
+          "condition": {
+            "test": "datum.isHighest",
+            "value": "bold"
+          },
+          "value": "normal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.isHighest",
+            "value": "#A6534D"
+          },
+          "value": "#634032"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.isHighest"
+        },
+        {
+          "calculate": "'Highest average'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "top",
+        "dy": 10,
+        "font": "sans-serif",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#A6534D"
+      },
+      "encoding": {
+        "y": {
+          "field": "brand",
+          "type": "nominal",
+          "sort": {
+            "field": "averagePrice",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "averagePrice",
+          "type": "quantitative",
+          "scale": {
+            "zero": true
+          }
+        },
+        "text": {
+          "field": "annotation"
+        }
       }
     }
   ],

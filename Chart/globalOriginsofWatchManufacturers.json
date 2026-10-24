@@ -1,7 +1,5 @@
-
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
   "title": {
     "text": "Global Origins of Watch Brands",
     "subtitle": "Where did watch brands originate?",
@@ -14,29 +12,25 @@
     "anchor": "start",
     "offset": 12
   },
-
   "width": "container",
   "height": 500,
-
   "autosize": {
     "type": "fit",
     "contains": "padding",
     "resize": true
   },
-
   "projection": {
     "type": "equalEarth",
     "scale": {
       "expr": "zoomScale"
     },
-    "center":{
+    "center": {
       "expr": "focusCenter"
     },
     "translate": {
       "expr": "[width / 2, height / 2]"
     }
   },
-
   "params": [
     {
       "name": "selectedCountry",
@@ -48,27 +42,25 @@
     },
     {
       "name": "focusCenter",
-      "value": [0,0]
+      "value": [0, 0]
     }
   ],
-
-  "data": {
-    "url": "data/ne_110m_admin_0_countries.topojson",
-    "format": {
-      "type": "topojson",
-      "feature": "ne_110m_admin_0_countries"
-    }
-  },
-
   "layer": [
     {
+      "name": "baseMap",
+      "data": {
+        "url": "data/ne_110m_admin_0_countries.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
       "mark": {
         "type": "geoshape",
         "fill": "#E6DED2",
         "stroke": "#FFFFFF",
         "strokeWidth": 0.7
       },
-
       "encoding": {
         "tooltip": [
           {
@@ -79,8 +71,15 @@
         ]
       }
     },
-
     {
+      "name": "brandOrigins",
+      "data": {
+        "url": "data/ne_110m_admin_0_countries.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
       "transform": [
         {
           "lookup": "properties.NAME",
@@ -99,19 +98,16 @@
           "filter": "isValid(datum.manufacturerPercentage) && (selectedCountry === 'All countries' || datum.properties.NAME === selectedCountry)"
         }
       ],
-
       "mark": {
         "type": "geoshape",
         "stroke": "#FFFFFF",
         "strokeWidth": 0.7
       },
-
       "encoding": {
         "color": {
           "field": "manufacturerPercentage",
           "type": "quantitative",
           "title": "Share of brands (%)",
-
           "scale": {
             "type": "linear",
             "domain": [0, 30],
@@ -123,7 +119,6 @@
             ],
             "clamp": true
           },
-
           "legend": {
             "orient": "right",
             "direction": "vertical",
@@ -136,7 +131,6 @@
             "titleFontSize": 14
           }
         },
-
         "tooltip": [
           {
             "field": "properties.NAME",
@@ -157,21 +151,188 @@
           }
         ]
       }
+    },
+    {
+      "name": "selectedCountryOutline",
+      "data": {
+        "url": "data/ne_110m_admin_0_countries.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "transform": [
+        {
+          "filter": "selectedCountry === 'All countries' ? indexof(['Switzerland', 'Japan', 'United States of America'], datum.properties.NAME) >= 0 : datum.properties.NAME === selectedCountry"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "transparent",
+        "fillOpacity": 0,
+        "stroke": "#FF0000",
+        "strokeWidth": 1.0,
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.NAME",
+            "type": "nominal",
+            "title": "Highlighted country"
+          }
+        ]
+      }
+    },
+    {
+      "name": "annotationLines",
+      "data": {
+        "values": [
+          {
+            "country": "Switzerland",
+            "longitude": 8,
+            "latitude": 47,
+            "labelLongitude": -30,
+            "labelLatitude": 55
+          },
+          {
+            "country": "United States of America",
+            "longitude": -102,
+            "latitude": 39,
+            "labelLongitude": -60,
+            "labelLatitude": 35
+          },
+          {
+            "country": "Japan",
+            "longitude": 138,
+            "latitude": 37,
+            "labelLongitude": 153,
+            "labelLatitude": 43
+          }
+        ]
+      },
+      "transform": [
+        {
+          "lookup": "country",
+          "from": {
+            "data": {
+              "url": "data/globalOriginCounts.json"
+            },
+            "key": "origin",
+            "fields": [
+              "manufacturerPercentage"
+            ]
+          }
+        },
+        {
+          "filter": "isValid(datum.manufacturerPercentage)"
+        },
+        {
+          "filter": "selectedCountry === 'All countries' ? indexof(['Switzerland', 'United States of America', 'Japan'], datum.country) >= 0 : datum.country === selectedCountry"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#805536",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "labelLongitude"
+        },
+        "latitude2": {
+          "field": "labelLatitude"
+        }
+      }
+    },
+    {
+      "name": "annotationLabels",
+      "data": {
+        "values": [
+          {
+            "country": "Switzerland",
+            "longitude": -60,
+            "latitude": 58
+          },
+          {
+            "country": "United States of America",
+            "longitude": -80,
+            "latitude": 32
+          },
+          {
+            "country": "Japan",
+            "longitude": 153,
+            "latitude": 43
+          }
+        ]
+      },
+      "transform": [
+        {
+          "lookup": "country",
+          "from": {
+            "data": {
+              "url": "data/globalOriginCounts.json"
+            },
+            "key": "origin",
+            "fields": [
+              "manufacturerPercentage"
+            ]
+          }
+        },
+        {
+          "filter": "isValid(datum.manufacturerPercentage)"
+        },
+        {
+          "filter": "selectedCountry === 'All countries' ? indexof(['Switzerland', 'United States of America', 'Japan'], datum.country) >= 0 : datum.country === selectedCountry"
+        },
+        {
+          "calculate": "datum.country + ' ' + format(datum.manufacturerPercentage, '.1f') + '%'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "sans-serif",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#4B2E22",
+        "align": "left",
+        "dx": 4,
+        "dy": -2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
     }
   ],
-
   "config": {
     "background": "#FFFFFF",
-
     "view": {
       "stroke": null
     },
-
     "axis": {
       "labelFont": "sans-serif",
       "titleFont": "sans-serif"
     },
-
     "title": {
       "color": "#211A16"
     }

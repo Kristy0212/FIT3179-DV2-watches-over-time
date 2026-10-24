@@ -89,24 +89,12 @@
         {
           "aggregate": [
             {
-              "op": "max",
+              "op": "median",
               "field": "price_numeric",
-              "as": "maxPrice"
+              "as": "medianPrice"
             }
           ],
           "groupby": ["productionPeriod"]
-        },
-        {
-          "joinaggregate": [
-            {
-              "op": "max",
-              "field": "maxPrice",
-              "as": "overallMax"
-            }
-          ]
-        },
-        {
-          "filter": "datum.maxPrice === datum.overallMax"
         }
       ],
       "mark": {
@@ -121,88 +109,38 @@
         "x": {
           "field": "productionPeriod",
           "type": "ordinal",
+          "title": "Production Period",
           "sort": [
             "Before 1950",
             "1950-1969",
             "1970-1989",
             "1990-2009",
             "2010+"
-          ]
-        },
-        "y": {
-          "field": "maxPrice",
-          "type": "quantitative",
-          "scale": {
-            "type": "log",
-            "domain": [10, 10000000]
-          }
-        },
-        "tooltip": [
-          {
-            "field": "productionPeriod",
-            "type": "nominal",
-            "title": "Production Period"
-          },
-          {
-            "field": "maxPrice",
-            "type": "quantitative",
-            "title": "Maximum Price",
-            "format": "$,.0f"
-          }
-        ]
-      }
-    },
-    {
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "median",
-              "field": "price_numeric",
-              "as": "medianPrice"
-            }
           ],
-          "groupby": ["productionPeriod"]
-        },
-        {
-          "joinaggregate": [
-            {
-              "op": "max",
-              "field": "medianPrice",
-              "as": "highestMedian"
-            }
-          ]
-        },
-        {
-          "filter": "datum.medianPrice === datum.highestMedian"
-        }
-      ],
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 90,
-        "color": "#8C7466",
-        "stroke": "#F7F3EA",
-        "strokeWidth": 2
-      },
-      "encoding": {
-        "x": {
-          "field": "productionPeriod",
-          "type": "ordinal",
-          "sort": [
-            "Before 1950",
-            "1950-1969",
-            "1970-1989",
-            "1990-2009",
-            "2010+"
-          ]
+          "axis": {
+            "labelAngle": 0,
+            "grid": false,
+            "tickColor": "#000000",
+            "domainColor": "#000000"
+          }
         },
         "y": {
           "field": "medianPrice",
           "type": "quantitative",
+          "title": "Watch Price (USD)",
           "scale": {
             "type": "log",
             "domain": [10, 10000000]
+          },
+          "axis": {
+            "format": "$,.0f",
+            "grid": true,
+            "gridColor": "#D8D0C5",
+            "gridWidth": 0.8,
+            "gridOpacity": 0.5,
+            "tickCount": 5,
+            "tickColor": "#000000",
+            "domainColor": "#000000"
           }
         },
         "tooltip": [
@@ -218,144 +156,6 @@
             "format": "$,.0f"
           }
         ]
-      }
-    },
-    {
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "max",
-              "field": "price_numeric",
-              "as": "maxPrice"
-            }
-          ],
-          "groupby": ["productionPeriod"]
-        },
-        {
-          "joinaggregate": [
-            {
-              "op": "max",
-              "field": "maxPrice",
-              "as": "overallMax"
-            }
-          ]
-        },
-        {
-          "filter": "datum.maxPrice === datum.overallMax"
-        },
-        {
-          "calculate": "datum.maxPrice / 1.5",
-          "as": "labelPrice"
-        },
-        {
-          "calculate": "'Highest price'",
-          "as": "label"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "center",
-        "baseline": "middle",
-        "dx": -42,
-        "dy": -12,
-        "font": "sans-serif",
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "color": "#634032"
-      },
-      "encoding": {
-        "x": {
-          "field": "productionPeriod",
-          "type": "ordinal",
-          "sort": [
-            "Before 1950",
-            "1950-1969",
-            "1970-1989",
-            "1990-2009",
-            "2010+"
-          ]
-        },
-        "y": {
-          "field": "labelPrice",
-          "type": "quantitative",
-          "scale": {
-            "type": "log",
-            "domain": [10, 10000000]
-          }
-        },
-        "text": {
-          "field": "label"
-        }
-      }
-    },
-    {
-      "transform": [
-        {
-          "aggregate": [
-            {
-              "op": "median",
-              "field": "price_numeric",
-              "as": "medianPrice"
-            }
-          ],
-          "groupby": ["productionPeriod"]
-        },
-        {
-          "joinaggregate": [
-            {
-              "op": "max",
-              "field": "medianPrice",
-              "as": "highestMedian"
-            }
-          ]
-        },
-        {
-          "filter": "datum.medianPrice === datum.highestMedian"
-        },
-        {
-          "calculate": "datum.medianPrice * 1.6",
-          "as": "labelPrice"
-        },
-        {
-          "calculate": "'Highest median'",
-          "as": "label"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "center",
-        "baseline": "middle",
-        "dx": -50,
-        "dy": -20,
-        "font": "sans-serif",
-        "fontSize": 11,
-        "fontWeight": "bold",
-        "color": "#634032"
-      },
-      "encoding": {
-        "x": {
-          "field": "productionPeriod",
-          "type": "ordinal",
-          "sort": [
-            "Before 1950",
-            "1950-1969",
-            "1970-1989",
-            "1990-2009",
-            "2010+"
-          ]
-        },
-        "y": {
-          "field": "labelPrice",
-          "type": "quantitative",
-          "scale": {
-            "type": "log",
-            "domain": [10, 10000000]
-          }
-        },
-        "text": {
-          "field": "label"
-        }
       }
     }
   ],

@@ -139,7 +139,7 @@
                 "type": "point",
                 "filled": true,
                 "size": 60,
-                "color": "#b6b4b4"
+                "color": "#B07A7A"
             },
             "encoding":{
                 "x":{
@@ -258,7 +258,7 @@
                 "type": "nominal",
                 "scale":{
                     "domain":["Founded", "Defunct", "Revival"],
-                    "range": ["#2ca02c", "#b6b4b4", "#1f77b4"]
+                    "range": ["#2ca02c", "#B07A7A", "#1f77b4"]
                 },
                 "legend":{
                     "title":"Milestone",

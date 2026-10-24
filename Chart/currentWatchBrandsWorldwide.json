@@ -1,6 +1,6 @@
+
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-
   "title": {
     "text": "Current Watch Brands Worldwide",
     "subtitle": "Where are current watch brands headquartered around the world?",
@@ -12,29 +12,25 @@
     "anchor": "start",
     "offset": 10
   },
-
   "width": "container",
   "height": 500,
-
   "autosize": {
     "type": "fit",
     "contains": "padding",
     "resize": true
   },
-
-    "projection": {
-    "type": "equalEarth",
-    "scale": {
-      "expr": "zoomScale"
-    },
-    "center":{
-      "expr": "focusCenter"
-    },
-    "translate": {
-        "expr": "[width / 2, height / 2]"
-    }
+  "padding": {
+    "left": 10,
+    "top": 10,
+    "right": 5,
+    "bottom": 10
   },
-
+  "projection": {
+    "type": "equalEarth",
+    "scale": {"expr": "zoomScale"},
+    "center": {"expr": "focusCenter"},
+    "translate": {"expr": "[width / 2, height / 2]"}
+  },
   "params": [
     {
       "name": "selectedCountry",
@@ -46,12 +42,12 @@
     },
     {
       "name": "focusCenter",
-      "value": [0,0]
+      "value": [0, 0]
     }
   ],
   "layer": [
-
     {
+      "name": "baseMap",
       "data": {
         "url": "data/ne_110m_admin_0_countries.topojson",
         "format": {
@@ -59,7 +55,6 @@
           "feature": "ne_110m_admin_0_countries"
         }
       },
-
       "mark": {
         "type": "geoshape",
         "fill": "#E8E1D5",
@@ -67,21 +62,23 @@
         "strokeWidth": 0.5
       }
     },
-
     {
+      "name": "brandPoints",
       "data": {
         "url": "data/brands.json"
       },
-
       "transform": [
         {
           "filter": "datum.status == 'active'"
         },
         {
           "filter": "selectedCountry === 'All countries' || datum.hq.country === selectedCountry || (selectedCountry === 'United States of America' && datum.hq.country === 'USA') || (selectedCountry === 'Hong Kong S.A.R.' && datum.hq.country === 'Hong Kong') || (selectedCountry === 'Czechia' && datum.hq.country === 'Czech Republic')"
+        },
+        {
+          "calculate": "'Active watch brand'",
+          "as": "legendLabel"
         }
       ],
-
       "mark": {
         "type": "circle",
         "size": 35,
@@ -90,19 +87,37 @@
         "stroke": "white",
         "strokeWidth": 0.5
       },
-
       "encoding": {
-
         "longitude": {
           "field": "hq.lng",
           "type": "quantitative"
         },
-
         "latitude": {
           "field": "hq.lat",
           "type": "quantitative"
         },
-
+        "color": {
+          "field": "legendLabel",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Active watch brand"],
+            "range": ["#75865A"]
+          },
+          "legend": {
+            "orient": "right",
+            "direction": "vertical",
+            "title": null,
+            "labelExpr": "'1 dot = 1 active watch brand'",
+            "labelFont": "sans-serif",
+            "labelFontSize": 13,
+            "labelColor": "#000000",
+            "symbolType": "circle",
+            "symbolSize": 65,
+            "offset": 5,
+            "padding": 10,
+            "labelLimit": 300
+          }
+        },
         "tooltip": [
           {
             "field": "name",
@@ -128,10 +143,17 @@
       }
     }
   ],
-
   "config": {
+    "background": "#FFFFFF",
     "view": {
       "stroke": null
+    },
+    "title": {
+      "color": "#211A16"
+    },
+    "legend": {
+      "orient": "right",
+      "direction": "vertical"
     }
   }
 }

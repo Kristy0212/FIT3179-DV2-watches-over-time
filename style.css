@@ -1,0 +1,651 @@
+body {
+    background: #F7F3EA;
+    margin: 0;
+    padding: 30px;
+}
+.chart-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+.chart{
+    width:100%;
+}
+.chart-card{
+    background:white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.dashboard-header{
+    background: #634032;
+    /*Keep existing banner image and gradient*/
+    background-image: 
+    linear-gradient(
+        to right,
+        rgba(99,64,50,1) 0%,
+        rgba(99,64,50,0.95) 30%,
+        rgba(99,64,50,0.65) 55%,
+        rgba(99,64,50,0.1) 100%
+    ),
+    url("images/bar_background_picture.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    padding: 30px 35px;
+    min-height: 130px;
+    margin-bottom: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.header-text {
+    max-width: 650px;
+    
+}
+/* Dashboard Title */
+.dashboard-header h1 {
+    margin: 0 0 12px 0;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 42px;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #FFF8EE;
+}
+
+/* Dashboard Subtitle */
+.dashboard-header p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 850px;
+    color: #F7F0E5;
+}
+/* Navigation inside the banner */
+.header-nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 16px 0 0 0;
+}   
+
+.header-nav a {
+    display: inline-block;
+    color: #634032;
+    background: #F7F0E5;
+    border: 1px solid #F7F0E5;
+    border-radius: 5px;
+    padding: 11px 16px;
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition: background 0.2s ease,
+                color 0.2s ease;
+}
+
+.header-nav a:hover {
+    background: #C6A477;
+    border-color: #C6A477;
+    color: #38271F;
+}
+html {
+    scroll-behavior: smooth;
+}
+.section-header {
+    background: #EADCC8;
+    padding: 14px 24px;
+    margin: 24px 0 24px;
+    box-sizing: border-box;
+    width: 100%;
+}
+.section-header h2 {
+    margin: 0 0 8px 0;
+    color: #634032;
+    font-family: 'Cinzel', serif;
+    font-size: 24px;
+}
+
+.section-header p {
+    margin: 0;
+    color: #634032;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Stack each chart card and insight card vertically */
+.chart-column {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    min-width: 0;
+}
+
+
+.chart-insight-card {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+    min-height: 150px;
+    display: grid;
+    grid-template-columns: 190px 2px minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+    background-color: #EEEAE4;
+    border: 2px solid #C8AD91;
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-top: 0px;
+}
+
+.insight-title {
+    flex: 0 0 150px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.insight-divider {
+    width: 2px;
+    height: 100%;
+    min-height: 80px;
+    background-color: #C8AD91;
+    align-self: stretch;
+}
+
+.chart-insight-card p {
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* Section header with country filter */
+.section-header-with-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.section-header-copy {
+    flex: 1;
+    min-width: 0;
+}
+
+.global-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.global-filter label {
+    color: #634032;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.global-filter select {
+    min-width: 155px;
+    padding: 10px 12px;
+    border: 1px solid #BFA58D;
+    border-radius: 6px;
+    background: #F7F3EA;
+    color: #3B2922;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.global-maps-column .chart-insight-card,
+    .global-maps-column .origin-insight {
+        margin-bottom: 24px;
+}
+
+
+.global-origin-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    background: white;
+    padding: 12px 16px 20px;
+}
+
+.map-zoom-controls {
+    position: absolute;
+    left: 18px;
+    top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 20;
+}
+
+.map-zoom-controls button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #BFA58D;
+    border-radius: 6px;
+    background: #FFFDF9;
+    color: #634032;
+    font-family: Arial, sans-serif;
+    font-size: 23px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.map-zoom-controls button:hover {
+    background: #EADCC8;
+}
+
+.case-material-section{
+    margin-bottom: 24px
+}
+
+.material-insights-box {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+    box-sizing: border-box;
+    margin: 24px 0 30px;
+    padding: 24px;
+    background: #EDEAE3;
+    border: 2px solid #BFA58D;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    min-width: 0;
+    margin-top: 0px;
+}
+
+.material-insight {
+    min-width: 0;
+    padding: 0 24px;
+}
+
+.material-insight:first-child {
+    padding-left: 0;
+}
+
+.material-insight:last-child {
+    padding-right: 0;
+}
+
+.material-insight + .material-insight {
+    border-left: 2px solid #BFA58D;
+}
+
+.material-insights-box .insight-title {
+    margin: 0 0 24px;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.material-insight p {
+    margin: 0;
+    color: #3B2922;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.steel-title,
+.steel-highlight {
+    color: #8F7159;
+}
+
+.leather-title,
+.leather-highlight {
+    color: #E99A49;
+}
+
+.gold-title,
+.gold-highlight {
+    color: #BD984E;
+}
+
+.material-insight strong {
+    font-weight: 700;
+}
+
+.material-insight::before {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 3px;
+    margin-bottom: 24px;
+    border-radius: 2px;
+}
+
+.material-insight:nth-child(1)::before {
+    background-color: #8F7159;
+}
+
+.material-insight:nth-child(2)::before {
+    background-color: #D98532;
+}
+
+.material-insight:nth-child(3)::before {
+    background-color: #B28C3E;
+}
+
+/* Two cards side by side */
+.material-info-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 24px;
+    width: 100%;
+    margin: 0;
+}
+
+/* Card dimensions: fit content, not parent height */
+.material-info-row > .chart-insight-card {
+    display: grid !important;
+    grid-template-columns: 225px minmax(0, 1fr);
+    align-items: center;
+    align-content: center;
+    min-width: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 24px;
+}
+
+/* Heading vertically centred beside the content */
+.material-info-row > .chart-insight-card > .insight-title {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    position: relative;
+    margin: 0;
+    padding-right: 24px;
+    border: none !important;
+    color: #000000 !important;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* Vertical separator */
+.material-info-row > .chart-insight-card > .insight-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 100px;
+    background-color: #BFA58D;
+    display: block;
+    opacity: 1;
+}
+
+/* Remove horizontal divider */
+.material-info-row > .chart-insight-card > .insight-divider {
+    display: none !important;
+}
+
+/* Content begins at the top, left-aligned */
+.material-info-row > .chart-insight-card > p {
+    grid-column: 2;
+    align-self: center;
+    margin: 0 !important;
+    padding: 0;
+    color: #3B2922;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.material-info-row > .chart-insight-card > p:last-child {
+    margin-bottom: 0 !important;
+}
+
+.dashboard-footer {
+    margin-top: 40px;
+    padding: 24px 0;
+    border-top: 1px solid #C8B39D;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #6B5547;
+    text-align: left;
+}
+
+.dashboard-footer p {
+    margin: 4px 0;
+}
+
+.dashboard-footer strong {
+    color: #8F4540;
+    font-weight: 700;
+}
+
+.dashboard-footer a {
+    color: #8F4540;
+    text-decoration: underline;
+}
+
+.dashboard-footer a:hover {
+    color: #604032;
+}
+
+.dashboard-references {
+    margin-top: 20px;
+    max-width: 900px;
+}
+
+.dashboard-references h3 {
+    margin: 0 0 12px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 16px;
+    color: #604032;
+}
+
+.dashboard-references p {
+    margin: 0 0 12px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    color: #6B5547;
+}
+
+.dashboard-references a {
+    color: #8F4540;
+    text-decoration: underline;
+}
+
+.watch-conclusion {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 8px 0 24px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    color: #49362D;
+}
+
+.conclusion-subtitle {
+    margin: 0 0 24px;
+    color: #000000;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.conclusion-timeline {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    width: 100%;
+    gap: 12px;
+
+    margin: 0 0 28px;
+}
+
+
+/* Individual stage cards */
+.conclusion-card {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 245px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 22px 14px;
+
+    text-align: center;
+
+    background: #FFFCF7;
+    border: 1px solid #E3D1BA;
+    border-radius: 10px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.conclusion-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 5px 14px rgba(75, 46, 34, 0.10);
+}
+
+.stage-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+
+    margin-bottom: 16px;
+
+    background: #634032;
+    color: #FFF8EE;
+
+    border-radius: 50%;
+
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.conclusion-card h3 {
+    margin: 0;
+
+    color: #4B2E22;
+
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+.stage-divider {
+    width: 42px;
+    height: 2px;
+    flex-shrink: 0;
+
+    margin: 14px 0;
+
+    background: #C49A5A;
+}
+
+.conclusion-card p {
+    margin: 0;
+
+    color: #6B5B50;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.timeline-arrow {
+    flex: 0 0 22px;
+    align-self: center;
+
+    color: #B78032;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+
+    text-align: center;
+}
+
+.conclusion-takeaway {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    align-items: center;
+    gap: 22px;
+    margin-top: 28px;
+    padding: 22px 0;
+    /* No surrounding box */
+    background: transparent;
+    border: none;
+    border-top: 1px solid #C49A5A;
+    border-bottom: 1px solid #C49A5A;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+/* Takeaway label */
+.takeaway-label {
+    padding-right: 18px;
+    border-right: 1px solid #C49A5A;
+    color: #95672F;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: 1.7;
+}
+
+/* Takeaway statement */
+.conclusion-takeaway p {
+    margin: 0;
+    color: #4B2E22;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* Fix spacing above Section 3 only */
+#characteristics {
+    margin-top: 40px;
+    margin-bottom: 24px;
+}
